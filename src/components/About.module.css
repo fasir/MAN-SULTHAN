@@ -1,5 +1,5 @@
 .about {
-  padding: 40px 0;
+  padding: 60px 0px;
   background: #ffffff;
 }
 
@@ -9,140 +9,254 @@
   padding: 0 20px;
 }
 
+/* ─── 2-Column Layout ─── */
 .aboutGrid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 36px;
-  align-items: start;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 48px;
+  align-items: center;
+}
+
+/* ─── Left Image Showcase Card ─── */
+.imageCol {
+  position: relative;
+  width: 100%;
+}
+
+.imageCard {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3.2;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid #e8e5dc;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+}
+
+.aboutImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.imageCard:hover .aboutImg {
+  transform: scale(1.06);
+}
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 60%, rgba(15, 15, 26, 0.4) 100%);
+  pointer-events: none;
+}
+
+/* ─── Floating Experience Badge ─── */
+.experienceBadge {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  z-index: 2;
+  background: rgba(17, 17, 29, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1.5px solid #c9a84c;
+  padding: 14px 22px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.badgeNumber {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #c9a84c;
+  line-height: 1;
+}
+
+.badgeText {
+  display: flex;
+  flex-direction: column;
+  color: #ffffff;
+  font-size: 0.72rem;
+  letter-spacing: 1.5px;
+  line-height: 1.2;
+}
+
+.badgeText strong {
+  color: #c9a84c;
+  font-size: 0.85rem;
+}
+
+/* ─── Right Content Column ─── */
+.contentCol {
+  display: flex;
+  flex-direction: column;
 }
 
 .aboutTag {
   color: #c9a84c;
-  font-size: 0.8rem;
-  font-weight: 600;
+  font-size: 0.78rem;
+  font-weight: 700;
   letter-spacing: 3px;
   text-transform: uppercase;
   display: block;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .aboutTitle {
   font-family: var(--font-heading, 'Plus Jakarta Sans', 'Inter', sans-serif);
-  font-weight: 600;
-  font-size: clamp(1.3rem, 2vw, 1.7rem);
-  color: #1a1a2e;
-  line-height: 1.2;
-  margin-bottom: 18px;
+  font-weight: 700;
+  font-size: clamp(1.4rem, 2.3vw, 1.9rem);
+  color: #0a233c;
+  line-height: 1.25;
+  margin-bottom: 14px;
+}
+
+.goldText {
+  color: #c9a84c;
 }
 
 .aboutText {
   color: #6c757d;
-  font-size: 0.95rem;
-  line-height: 1.7;
-  margin-bottom: 20px;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  margin-bottom: 24px;
 }
 
-.aboutList {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 28px 0;
+/* ─── 4 Pillars Grid (2x2) ─── */
+.pillarsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.pillarCard {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+  background: #f8f6f3;
+  border-radius: 12px;
+  border: 1px solid #eae7df;
+  transition: all 0.3s ease;
 }
 
-.aboutList li {
-  color: #1a1a2e;
-  font-size: 0.9rem;
-  font-weight: 500;
+.pillarCard:hover {
+  background: #ffffff;
+  border-color: #c9a84c;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(201, 168, 76, 0.12);
+}
+
+.pillarIconWrap {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e8e5dc;
+}
+
+.pillarIcon {
+  font-size: 1.2rem;
+}
+
+.pillarTitle {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #0a233c;
+  margin-bottom: 3px;
+  line-height: 1.25;
+}
+
+.pillarDesc {
+  font-size: 0.76rem;
+  color: #6c757d;
+  line-height: 1.35;
+  margin: 0;
 }
 
 .aboutBtn {
   display: inline-block;
-  background: #1a1a2e;
+  background: #0a233c;
   color: #ffffff;
   padding: 12px 28px;
-  border-radius: 4px;
+  border-radius: 8px;
   text-decoration: none;
   font-size: 0.8rem;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 1.5px;
   transition: all 0.3s ease;
-  border: 2px solid #1a1a2e;
+  border: 1px solid #0a233c;
+  align-self: flex-start;
 }
 
 .aboutBtn:hover {
   background: #c9a84c;
   border-color: #c9a84c;
-  color: #1a1a2e;
+  color: #0a233c;
   transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(201, 168, 76, 0.3);
 }
 
-.whyTitle {
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: #1a1a2e;
-  letter-spacing: 2px;
-  margin-bottom: 24px;
-  padding-bottom: 12px;
-  border-bottom: 2px solid #c9a84c;
-  display: inline-block;
-}
-
-.reasonsGrid {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.reasonCard {
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-  padding: 18px;
-  background: #f8f6f3;
-  border-radius: 10px;
-  transition: all 0.3s ease;
-}
-
-.reasonCard:hover {
-  transform: translateX(8px);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-}
-
-.reasonIcon {
-  font-size: 1.5rem;
-  flex-shrink: 0;
-  width: 44px;
-  height: 44px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-}
-
-.reasonTitle {
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: #1a1a2e;
-  margin-bottom: 4px;
-}
-
-.reasonDesc {
-  font-size: 0.82rem;
-  color: #6c757d;
-  line-height: 1.4;
-  margin: 0;
-}
-
-@media (max-width: 768px) {
+/* ─── Responsive ─── */
+@media (max-width: 1024px) {
   .aboutGrid {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 32px;
   }
+
+  .imageCard {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+@media (max-width: 640px) {
   .about {
-    padding: 50px 0;
+    padding: 24px 0;
+  }
+
+  .pillarsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .pillarCard {
+    padding: 10px 12px;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .pillarDesc {
+    display: none;
+  }
+
+  .pillarTitle {
+    font-size: 0.76rem;
+    margin-bottom: 0;
+  }
+
+  .experienceBadge {
+    bottom: 10px;
+    left: 10px;
+    padding: 8px 14px;
+    gap: 10px;
+  }
+
+  .badgeNumber {
+    font-size: 1.4rem;
+  }
+
+  .aboutBtn {
+    width: 100%;
+    text-align: center;
   }
 }

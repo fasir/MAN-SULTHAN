@@ -5,8 +5,8 @@
    ========================================================================== */
 :root {
   /* Brand Colors */
-  --color-primary: #1a1a2e;       /* Dark Navy */
-  --color-primary-light: #2a2a46;
+  --color-primary: #0a233c;       /* Dark Navy */
+  --color-primary-light: #183756;
   --color-secondary: #c9a84c;     /* Gold / Amber */
   --color-secondary-hover: #b3923b;
   --color-secondary-light: #f5eedc;
@@ -15,12 +15,12 @@
 
   /* Background Colors */
   --color-bg-light: #f8f6f3;
-  --color-bg-dark: #0f0f1a;
+  --color-bg-dark: #07192b;
   --color-card-bg: #ffffff;
-  --color-card-bg-dark: #161626;
+  --color-card-bg-dark: #0a233c;
 
   /* Text Colors */
-  --color-text-primary: #1a1a2e;
+  --color-text-primary: #0a233c;
   --color-text-light: #ffffff;
   --color-text-muted: #6c757d;
   --color-text-gold: #c9a84c;

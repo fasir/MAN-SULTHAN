@@ -1,17 +1,52 @@
 .promo {
-  background: linear-gradient(135deg, #11111d 0%, #161626 50%, #0d0d16 100%);
-  padding: 0;
-  margin: 0;
-  overflow: hidden;
-  position: relative;
-  border-top: 1px solid rgba(201, 168, 76, 0.15);
-  border-bottom: 1px solid rgba(201, 168, 76, 0.15);
+  padding: 0px 0;
+  background: #ffffff;
 }
 
-.promoInner {
+.promoContainer {
   max-width: 1440px;
   margin: 0 auto;
-  padding: 36px 24px;
+  padding: 0 20px;
+}
+
+/* ─── Glassmorphic Card Outer Container ─── */
+.promoCard {
+  position: relative;
+  background: linear-gradient(135deg, #07192b 0%, #0a233c 50%, #0e3256 100%);
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(201, 168, 76, 0.25);
+  box-shadow: 0 16px 48px rgba(26, 26, 46, 0.25);
+}
+
+/* ─── Ambient Glow Effects ─── */
+.glowTop {
+  position: absolute;
+  top: -80px;
+  left: -80px;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201, 168, 76, 0.2) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.glowBottom {
+  position: absolute;
+  bottom: -80px;
+  right: -80px;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201, 168, 76, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ─── Inner 2-Column Grid Layout ─── */
+.cardGrid {
+  position: relative;
+  z-index: 2;
+  padding: 40px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -28,12 +63,14 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
   flex-wrap: wrap;
 }
 
 .promoTag {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   background: rgba(201, 168, 76, 0.15);
   color: #c9a84c;
   padding: 5px 14px;
@@ -42,6 +79,29 @@
   font-weight: 700;
   letter-spacing: 2px;
   border: 1px solid rgba(201, 168, 76, 0.3);
+}
+
+.pulseDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ff4757;
+  box-shadow: 0 0 8px #ff4757;
+  animation: dotPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes dotPulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.3);
+    opacity: 0.6;
+  }
 }
 
 .badgeHot {
@@ -58,9 +118,9 @@
 .promoTitle {
   font-family: var(--font-heading, 'Plus Jakarta Sans', 'Inter', sans-serif);
   font-weight: 700;
-  font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+  font-size: clamp(1.6rem, 2.8vw, 2.3rem);
   color: #ffffff;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
   line-height: 1.25;
 }
 
@@ -72,7 +132,7 @@
 }
 
 .promoText {
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.78);
   font-size: 0.92rem;
   line-height: 1.6;
   margin-bottom: 20px;
@@ -90,7 +150,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.88);
   font-size: 0.85rem;
   font-weight: 500;
 }
@@ -109,14 +169,20 @@
   flex-shrink: 0;
 }
 
-/* ─── Button ─── */
+.actionWrap {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
 .promoBtn {
   display: inline-flex;
   align-items: center;
   gap: 10px;
   background: linear-gradient(135deg, #c9a84c, #e0c068);
-  color: #1a1a2e;
-  padding: 12px 28px;
+  color: #0a233c;
+  padding: 13px 30px;
   border-radius: 8px;
   text-decoration: none;
   font-size: 0.82rem;
@@ -124,13 +190,13 @@
   letter-spacing: 1.5px;
   transition: all 0.3s ease;
   border: none;
-  box-shadow: 0 4px 16px rgba(201, 168, 76, 0.25);
+  box-shadow: 0 4px 16px rgba(201, 168, 76, 0.3);
 }
 
 .promoBtn:hover {
   background: linear-gradient(135deg, #e0c068, #c9a84c);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(201, 168, 76, 0.4);
+  box-shadow: 0 8px 26px rgba(201, 168, 76, 0.5);
 }
 
 .promoBtn svg {
@@ -139,6 +205,13 @@
 
 .promoBtn:hover svg {
   transform: translateX(4px);
+}
+
+.offerEndsText {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
 /* ─── Right Image Showcase ─── */
@@ -153,7 +226,7 @@
   width: 100%;
   border-radius: 16px;
   overflow: hidden;
-  border: 1px solid rgba(201, 168, 76, 0.3);
+  border: 1px solid rgba(201, 168, 76, 0.35);
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
   aspect-ratio: 16 / 9;
 }
@@ -166,7 +239,7 @@
 }
 
 .imageCard:hover .promoImg {
-  transform: scale(1.05);
+  transform: scale(1.06);
 }
 
 .imageOverlay {
@@ -182,7 +255,7 @@
   top: 16px;
   right: 16px;
   z-index: 2;
-  background: rgba(17, 17, 29, 0.85);
+  background: rgba(17, 17, 29, 0.88);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1.5px solid #c9a84c;
@@ -192,8 +265,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-  animation: pulse 2.5s ease-in-out infinite;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  animation: badgePulse 2.5s ease-in-out infinite;
 }
 
 .badgeUp {
@@ -220,25 +293,40 @@
   line-height: 1;
 }
 
-@keyframes pulse {
-  0%, 100% { box-shadow: 0 0 16px rgba(201, 168, 76, 0.3); }
-  50% { box-shadow: 0 0 30px rgba(201, 168, 76, 0.6); }
+@keyframes badgePulse {
+
+  0%,
+  100% {
+    box-shadow: 0 0 16px rgba(201, 168, 76, 0.3);
+  }
+
+  50% {
+    box-shadow: 0 0 30px rgba(201, 168, 76, 0.6);
+  }
 }
 
 /* ─── Responsive ─── */
 @media (max-width: 1024px) {
-  .promoInner {
+  .cardGrid {
     gap: 32px;
-    padding: 30px 20px;
+    padding: 32px;
   }
 }
 
 @media (max-width: 768px) {
-  .promoInner {
+  .promo {
+    padding: 16px 0;
+  }
+
+  .glowTop, .glowBottom {
+    display: none;
+  }
+
+  .cardGrid {
     flex-direction: column;
     text-align: center;
-    padding: 32px 20px;
-    gap: 28px;
+    padding: 24px 18px;
+    gap: 22px;
   }
 
   .promoContent {
@@ -250,20 +338,25 @@
   }
 
   .promoFeatures {
-    align-items: center;
+    display: none;
   }
 
-  .promoBtn {
+  .promoText {
+    font-size: 0.86rem;
+    margin-bottom: 16px;
+  }
+
+  .actionWrap {
     justify-content: center;
   }
 
   .discountBadge {
-    top: 12px;
-    right: 12px;
-    padding: 8px 14px;
+    top: 10px;
+    right: 10px;
+    padding: 6px 12px;
   }
 
   .badgeValue {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
   }
 }

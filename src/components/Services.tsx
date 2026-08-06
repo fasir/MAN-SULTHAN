@@ -1,64 +1,52 @@
 'use client';
 
-import { useState } from 'react';
+import Image from 'next/image';
 import styles from './Services.module.css';
 
-const serviceCategories = [
-  {
-    id: 'display',
-    icon: '📱',
-    title: 'Screen & Display Replacement',
-    badge: 'Mobile & Laptop',
-    desc: 'Cracked screen or touch issues? We replace LCD, OLED & Retina displays with 100% original quality screens and warranty.',
-    features: ['Original OLED / IPS Screens', 'Touch & TouchBar Repair', 'Same-Day Express Fitting', '90-Day Warranty'],
-  },
-  {
-    id: 'battery',
-    icon: '🔋',
-    title: 'Battery & Power Repair',
-    badge: 'Fast Service',
-    desc: 'Battery draining fast or laptop not charging? Get certified high-capacity battery replacement and charging port repair.',
-    features: ['30-Min Phone Battery Swap', 'Laptop Battery Replacement', 'Charging Port Repair', 'Battery Health Calibration'],
-  },
-  {
-    id: 'chipset',
-    icon: '💻',
-    title: 'Motherboard & Chip-Level Repair',
-    badge: 'Expert Level',
-    desc: 'Advanced micro-soldering IC repair for dead devices, water damaged motherboards, and short circuit issues.',
-    features: ['Water Damage Restoration', 'No Power / Dead Board Fix', 'Graphic Chip (GPU) Repair', 'Power IC & CPU Reballing'],
-  },
-  {
-    id: 'software',
-    icon: '⚡',
-    title: 'Software & Data Recovery',
-    badge: '100% Confidential',
-    desc: 'OS installation, virus removal, boot error fixes, passcode unlocking, and deep data recovery from dead SSDs and phones.',
-    features: ['Windows & macOS Clean Install', 'Deep Hard Drive Data Recovery', 'Boot Loop & Crash Fix', 'System Speed Optimization'],
-  },
-  {
-    id: 'hardware',
-    icon: '⌨️',
-    title: 'Keyboard, Hinge & Body Repair',
-    badge: 'Laptop Care',
-    desc: 'Broken hinges, sticking keys, or cracked laptop casing? Complete structural restoration and original keyboard swap.',
-    features: ['Original Backlit Keyboards', 'Precision Hinge Repair', 'Trackpad & Speaker Fix', 'Full Casing Replacement'],
-  },
-  {
-    id: 'upgrade',
-    icon: '🚀',
-    title: 'SSD & RAM Performance Upgrade',
-    badge: 'Instant Boost',
-    desc: 'Make your old laptop up to 5X faster! NVMe SSD installation, RAM expansion, thermal cleaning, and paste re-application.',
-    features: ['NVMe SSD Upgrade (Up to 2TB)', 'RAM Expansion (Up to 64GB)', 'Thermal Paste Re-application', 'Internal Dust Cleaning'],
-  },
-];
-
 const guarantees = [
-  { icon: '⏱️', title: 'Express Service', desc: 'Minor repairs done in 30–60 minutes' },
-  { icon: '🛡️', title: '90-Day Warranty', desc: 'Warranty on all replaced spare parts' },
-  { icon: '🔍', title: 'Free Diagnosis', desc: 'Complete device check with transparent quote' },
-  { icon: '👨‍🔧', title: 'Certified Engineers', desc: 'Experienced micro-soldering technicians' },
+  {
+    icon: (
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+        <circle cx="12" cy="13" r="8" fill="#c9a84c" fillOpacity="0.2" stroke="#c9a84c" strokeWidth="1.8" />
+        <path d="M12 9v4l2.5 2.5" stroke="#c9a84c" strokeWidth="1.8" strokeLinecap="round" />
+        <path d="M10 3h4m-2 0v2" stroke="#c9a84c" strokeWidth="1.8" strokeLinecap="round" />
+      </svg>
+    ),
+    title: 'Express 30-Min Service',
+    desc: 'Quick counter repair for minor issues',
+  },
+  {
+    icon: (
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="#c9a84c" fillOpacity="0.2" stroke="#c9a84c" strokeWidth="1.8" strokeLinejoin="round" />
+        <path d="M9 12l2 2 4-4" stroke="#c9a84c" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    ),
+    title: '90-Day Parts Warranty',
+    desc: '100% genuine spare parts guarantee',
+  },
+  {
+    icon: (
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+        <circle cx="11" cy="11" r="7" fill="#c9a84c" fillOpacity="0.2" stroke="#c9a84c" strokeWidth="1.8" />
+        <path d="M16 16l4.5 4.5" stroke="#c9a84c" strokeWidth="2" strokeLinecap="round" />
+        <path d="M9 11h4m-2-2v4" stroke="#c9a84c" strokeWidth="1.8" strokeLinecap="round" />
+      </svg>
+    ),
+    title: 'Free Diagnostic Check',
+    desc: 'Instant inspection & upfront quote',
+  },
+  {
+    icon: (
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+        <rect x="5" y="5" width="14" height="14" rx="2" fill="#c9a84c" fillOpacity="0.2" stroke="#c9a84c" strokeWidth="1.8" />
+        <path d="M9 9h6v6H9z" fill="#c9a84c" fillOpacity="0.5" stroke="#c9a84c" strokeWidth="1.2" />
+        <path d="M9 1v4m6-4v4m4 4h4m-4 6h4m-6 4v4m-6-4v4M1 9h4m-4 6h4" stroke="#c9a84c" strokeWidth="1.8" strokeLinecap="round" />
+      </svg>
+    ),
+    title: 'Certified Engineers',
+    desc: 'Expert micro-soldering technicians',
+  },
 ];
 
 const supportedBrands = [
@@ -75,18 +63,84 @@ const supportedBrands = [
 ];
 
 const Services = () => {
-  const [activeTab, setActiveTab] = useState('all');
-
   return (
     <section id="servicing" className={styles.services}>
       <div className={styles.container}>
-        {/* Section Header */}
-        <div className={styles.sectionHeader}>
-          <span className={styles.sectionTag}>EXPERT REPAIR &amp; MAINTENANCE</span>
-          <h2 className={styles.sectionTitle}>Mobile &amp; Laptop Servicing</h2>
-          <p className={styles.sectionSubtitle}>
-            Fast, reliable, and professional repair services for all major smartphone &amp; laptop brands with genuine spare parts.
-          </p>
+        {/* 2 Main Background Image Cards */}
+        <div className={styles.hubGrid}>
+          {/* Mobile Servicing Card */}
+          <div className={styles.hubCard}>
+            <div className={styles.cardImageBg}>
+              <Image
+                src="/images/products/mobile-1.jpg"
+                alt="Mobile Servicing"
+                fill
+                className={styles.cardBgImg}
+                style={{ objectFit: 'cover' }}
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                quality={90}
+              />
+              <div className={styles.cardOverlay} />
+            </div>
+
+            <div className={styles.hubContent}>
+              <div className={styles.hubCardHeader}>
+                <div className={styles.iconWrap}>
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+                    <rect x="5" y="2" width="14" height="20" rx="3" fill="#c9a84c" fillOpacity="0.3" stroke="#c9a84c" strokeWidth="1.8" />
+                    <line x1="10" y1="5" x2="14" y2="5" stroke="#c9a84c" strokeWidth="1.8" strokeLinecap="round" />
+                    <circle cx="12" cy="18" r="1" fill="#c9a84c" />
+                  </svg>
+                </div>
+                <h3 className={styles.hubTitle}>Mobile Servicing</h3>
+              </div>
+
+              <p className={styles.hubDesc}>
+                Complete repair solutions including screen replacement, battery swap, liquid damage restoration &amp; IC chip repair for iPhone, Samsung, OnePlus &amp; all smartphone brands.
+              </p>
+
+              <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" className={styles.hubBtn}>
+                BOOK MOBILE REPAIR →
+              </a>
+            </div>
+          </div>
+
+          {/* Laptop Servicing Card */}
+          <div className={styles.hubCard}>
+            <div className={styles.cardImageBg}>
+              <Image
+                src="/images/products/laptop-1.jpg"
+                alt="Laptop Servicing"
+                fill
+                className={styles.cardBgImg}
+                style={{ objectFit: 'cover' }}
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                quality={90}
+              />
+              <div className={styles.cardOverlay} />
+            </div>
+
+            <div className={styles.hubContent}>
+              <div className={styles.hubCardHeader}>
+                <div className={styles.iconWrap}>
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+                    <rect x="3" y="4" width="18" height="12" rx="2" fill="#c9a84c" fillOpacity="0.3" stroke="#c9a84c" strokeWidth="1.8" />
+                    <path d="M1 18h22v1a1 1 0 01-1 1H2a1 1 0 01-1-1v-1z" fill="#c9a84c" fillOpacity="0.6" stroke="#c9a84c" strokeWidth="1.5" />
+                    <path d="M10 18h4" stroke="#0a233c" strokeWidth="1.8" strokeLinecap="round" />
+                  </svg>
+                </div>
+                <h3 className={styles.hubTitle}>Laptop Servicing &amp; Upgrades</h3>
+              </div>
+
+              <p className={styles.hubDesc}>
+                Comprehensive maintenance, NVMe SSD &amp; RAM speed upgrades, keyboard swap, hinge repair, and motherboard IC fix for MacBook, Dell, HP, Lenovo &amp; Gaming laptops.
+              </p>
+
+              <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" className={styles.hubBtn}>
+                BOOK LAPTOP REPAIR →
+              </a>
+            </div>
+          </div>
         </div>
 
         {/* Guarantees Bar */}
@@ -102,36 +156,7 @@ const Services = () => {
           ))}
         </div>
 
-        {/* Services Grid */}
-        <div className={styles.grid}>
-          {serviceCategories.map((service) => (
-            <div key={service.id} className={styles.serviceCard}>
-              <div className={styles.cardHeader}>
-                <div className={styles.iconWrap}>
-                  <span className={styles.serviceIcon}>{service.icon}</span>
-                </div>
-                <span className={styles.badge}>{service.badge}</span>
-              </div>
-              <h3 className={styles.serviceTitle}>{service.title}</h3>
-              <p className={styles.serviceDesc}>{service.desc}</p>
-
-              <ul className={styles.featureList}>
-                {service.features.map((feat, idx) => (
-                  <li key={idx} className={styles.featureItem}>
-                    <span className={styles.check}>✓</span>
-                    <span>{feat}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <a href="#contact" className={styles.bookBtn}>
-                BOOK REPAIR NOW →
-              </a>
-            </div>
-          ))}
-        </div>
-
-        {/* Supported Brands Bar */}
+        {/* Brands We Service */}
         <div className={styles.brandsBox}>
           <h4 className={styles.brandsTitle}>BRANDS WE SERVICE:</h4>
           <div className={styles.brandsList}>
@@ -140,22 +165,6 @@ const Services = () => {
                 {brand}
               </span>
             ))}
-          </div>
-        </div>
-
-        {/* CTA Banner */}
-        <div className={styles.ctaCard}>
-          <div className={styles.ctaText}>
-            <h3>Need Emergency Device Repair?</h3>
-            <p>Bring your device to our service center or get a free estimate over phone / WhatsApp.</p>
-          </div>
-          <div className={styles.ctaActions}>
-            <a href="tel:+919876543210" className={styles.ctaCallBtn}>
-              📞 CALL TECHNICIAN
-            </a>
-            <a href="https://wa.me/919876543210" className={styles.ctaWhatsappBtn} target="_blank" rel="noopener noreferrer">
-              💬 WHATSAPP INQUIRY
-            </a>
           </div>
         </div>
       </div>

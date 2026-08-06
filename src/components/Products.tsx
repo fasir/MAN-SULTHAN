@@ -1,3 +1,6 @@
+'use client';
+
+import { useRef } from 'react';
 import Image from 'next/image';
 import styles from './Products.module.css';
 
@@ -38,17 +41,46 @@ const renderStars = (rating: number) => {
 };
 
 const Products = () => {
+  const sliderRef = useRef<HTMLDivElement>(null);
+
+  const scrollLeft = () => {
+    if (sliderRef.current) {
+      sliderRef.current.scrollBy({ left: -300, behavior: 'smooth' });
+    }
+  };
+
+  const scrollRight = () => {
+    if (sliderRef.current) {
+      sliderRef.current.scrollBy({ left: 300, behavior: 'smooth' });
+    }
+  };
+
   return (
     <section id="products" className={styles.products}>
       <div className={styles.container}>
         <div className={styles.sectionHeader}>
           <div className={styles.headerLeft}>
-            <span className={styles.sectionTag}>OUR PRODUCTS</span>
             <h2 className={styles.sectionTitle}>Featured Products</h2>
           </div>
-          <a href="#" className={styles.viewAll}>VIEW ALL PRODUCTS →</a>
+          <div className={styles.headerControls}>
+            <div className={styles.arrowGroup}>
+              <button className={styles.arrowBtn} onClick={scrollLeft} aria-label="Slide products left">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="15 18 9 12 15 6" />
+                </svg>
+              </button>
+              <button className={styles.arrowBtn} onClick={scrollRight} aria-label="Slide products right">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="9 18 15 12 9 6" />
+                </svg>
+              </button>
+            </div>
+            <a href="#" className={styles.viewAll}>VIEW ALL PRODUCTS →</a>
+          </div>
         </div>
-        <div className={styles.grid}>
+
+        {/* Single Row Slider Track */}
+        <div className={styles.sliderTrack} ref={sliderRef}>
           {products.map((product) => (
             <div key={product.id} className={styles.card}>
               <div className={styles.cardImageWrapper}>
@@ -57,20 +89,20 @@ const Products = () => {
                   alt={product.name}
                   fill
                   style={{ objectFit: 'cover' }}
-                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                  sizes="(max-width: 640px) 70vw, (max-width: 1024px) 40vw, 20vw"
                 />
                 <div className={styles.discountBadge}>-{product.discount}%</div>
                 {product.badge && <span className={styles.productBadge}>{product.badge}</span>}
                 <div className={styles.cardActions}>
                   <button className={styles.actionBtn} aria-label="Add to wishlist">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
+                      <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
                     </svg>
                   </button>
                   <button className={styles.actionBtn} aria-label="Quick view">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-                      <circle cx="12" cy="12" r="3"/>
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                      <circle cx="12" cy="12" r="3" />
                     </svg>
                   </button>
                 </div>

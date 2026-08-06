@@ -18,7 +18,7 @@
   font-family: var(--font-heading, 'Plus Jakarta Sans', 'Inter', sans-serif);
   font-weight: 600;
   font-size: clamp(1.3rem, 2vw, 1.6rem);
-  color: #1a1a2e;
+  color: #0a233c;
   position: relative;
   display: inline-block;
   padding-bottom: 12px;
@@ -81,7 +81,7 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: #1a1a2e;
+  background: #0a233c;
   color: #c9a84c;
   display: flex;
   align-items: center;
@@ -93,7 +93,7 @@
 .name {
   font-size: 0.85rem;
   font-weight: 600;
-  color: #1a1a2e;
+  color: #0a233c;
 }
 
 @media (max-width: 768px) {
