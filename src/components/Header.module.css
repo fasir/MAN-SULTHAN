@@ -1,0 +1,588 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+}
+
+/* ─── Top Bar ─── */
+.topBar {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  color: #ffffff;
+  font-size: 0.78rem;
+  padding: 7px 0;
+}
+
+.topBarInner {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.topBarLeft {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #c9a84c;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.topBarRight {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.topBarLink {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: color 0.3s ease;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+}
+
+.topBarLink:hover {
+  color: #c9a84c;
+}
+
+.topBarDivider {
+  color: rgba(255, 255, 255, 0.2);
+  margin: 0 4px;
+  user-select: none;
+}
+
+/* ─── Main Navigation ─── */
+.mainNav {
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 2px 24px rgba(0, 0, 0, 0.06);
+  position: relative;
+}
+
+.navInner {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 82px;
+  gap: 32px;
+}
+
+/* ─── Logo (Left Aligned) ─── */
+.logoContainer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.logo {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.03);
+}
+
+/* ─── Center Nav Links ─── */
+.navCenter {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  flex: 1;
+  justify-content: center;
+}
+
+.navLink {
+  color: #1a1a2e;
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  padding: 8px 0;
+  position: relative;
+  transition: color 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.navLink::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #c9a84c, #e0c068);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+  border-radius: 1px;
+}
+
+.navLink:hover {
+  color: #c9a84c;
+}
+
+.navLink:hover::after {
+  width: 100%;
+}
+
+/* ─── Badge (HOT / NEW) ─── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #ff4757, #ff6b81);
+  color: #ffffff;
+  font-size: 0.55rem;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 3px;
+  margin-left: 6px;
+  letter-spacing: 0.5px;
+  line-height: 1;
+  animation: badgePulse 2s ease-in-out infinite;
+}
+
+@keyframes badgePulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* ─── Right Side E-Commerce Icons ─── */
+.navRight {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.iconBtn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: transparent;
+  border: none;
+  color: #1a1a2e;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.iconBtn:hover {
+  background: #f4f0e8;
+  color: #c9a84c;
+  transform: translateY(-1px);
+}
+
+.iconBadge {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 16px;
+  height: 16px;
+  background: linear-gradient(135deg, #ff4757, #ff6b81);
+  color: #fff;
+  font-size: 0.6rem;
+  font-weight: 700;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+/* ─── Cart Button (Highlighted) ─── */
+.cartBtn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: #1a1a2e;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  margin-left: 4px;
+}
+
+.cartBtn:hover {
+  background: #c9a84c;
+  color: #1a1a2e;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(201, 168, 76, 0.3);
+}
+
+.cartBadge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 18px;
+  height: 18px;
+  background: linear-gradient(135deg, #ff4757, #ff6b81);
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  border: 2px solid #fff;
+}
+
+/* ─── Expandable Search Bar ─── */
+.searchBar {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  border-top: 0px solid transparent;
+}
+
+.searchBarOpen {
+  max-height: 70px;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.searchBarInner {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.searchIcon {
+  color: #999;
+  flex-shrink: 0;
+}
+
+.searchInput {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 0.9rem;
+  color: #1a1a2e;
+  background: transparent;
+  letter-spacing: 0.3px;
+  font-weight: 400;
+}
+
+.searchInput::placeholder {
+  color: #bbb;
+}
+
+.searchClose {
+  background: none;
+  border: none;
+  color: #999;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.searchClose:hover {
+  background: #f0f0f0;
+  color: #1a1a2e;
+}
+
+/* ─── Dropdown ─── */
+.dropdown {
+  position: relative;
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  background: #ffffff;
+  min-width: 240px;
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.12);
+  border-radius: 12px;
+  padding: 8px 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 100;
+  border-top: 3px solid #c9a84c;
+}
+
+.dropdown:hover .dropdownMenu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.dropdownItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 20px;
+  color: #1a1a2e;
+  text-decoration: none;
+  font-size: 0.84rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  letter-spacing: 0.3px;
+}
+
+.dropdownItem:hover {
+  background: linear-gradient(90deg, #faf6ed, transparent);
+  color: #c9a84c;
+  padding-left: 26px;
+}
+
+.dropdownIcon {
+  font-size: 1rem;
+  width: 20px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+/* ─── Mobile Menu Button ─── */
+.mobileMenuBtn {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 10;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.mobileMenuBtn:hover {
+  background: #f4f0e8;
+}
+
+.mobileMenuBtn span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #1a1a2e;
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+/* ─── Mobile Overlay ─── */
+.mobileOverlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
+  z-index: 2000;
+  transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-direction: column;
+}
+
+.mobileOverlayOpen {
+  right: 0;
+}
+
+.mobileMenuHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.mobileLogoWrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.mobileLogo {
+  height: 38px;
+  width: auto;
+  object-fit: contain;
+}
+
+.closeBtn {
+  background: none;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.closeBtn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: rotate(90deg);
+}
+
+/* ─── Mobile Quick Actions ─── */
+.mobileQuickActions {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  padding: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.mobileQuickBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 16px 8px;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.mobileQuickBtn:last-child {
+  border-right: none;
+}
+
+.mobileQuickBtn:hover {
+  color: #c9a84c;
+  background: rgba(201, 168, 76, 0.08);
+}
+
+/* ─── Mobile Nav Links ─── */
+.mobileNavLinks {
+  display: flex;
+  flex-direction: column;
+  padding: 12px 24px;
+  gap: 0;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.mobileNavLink {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+
+.mobileNavLink:hover {
+  color: #c9a84c;
+  padding-left: 10px;
+}
+
+.mobileShopBtn {
+  display: inline-block;
+  margin-top: 16px;
+  background: linear-gradient(135deg, #c9a84c, #e0c068);
+  color: #1a1a2e;
+  padding: 14px 32px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.mobileShopBtn:hover {
+  background: linear-gradient(135deg, #b8973d, #c9a84c);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(201, 168, 76, 0.3);
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 1024px) {
+  .navCenter {
+    gap: 20px;
+  }
+
+  .navLink {
+    font-size: 0.75rem;
+    letter-spacing: 0.8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .topBar {
+    display: none;
+  }
+
+  .navCenter {
+    display: none;
+  }
+
+  .navRight {
+    display: none;
+  }
+
+  .logoContainer {
+    flex: 1;
+  }
+
+  .navInner {
+    height: 60px;
+    gap: 12px;
+  }
+
+  .mobileMenuBtn {
+    display: flex;
+  }
+
+  .mobileOverlay {
+    display: flex;
+  }
+
+  .logo {
+    height: 40px;
+  }
+}

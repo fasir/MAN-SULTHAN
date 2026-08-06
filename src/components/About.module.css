@@ -1,0 +1,148 @@
+.about {
+  padding: 40px 0;
+  background: #ffffff;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.aboutGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+  align-items: start;
+}
+
+.aboutTag {
+  color: #c9a84c;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.aboutTitle {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', 'Inter', sans-serif);
+  font-weight: 600;
+  font-size: clamp(1.3rem, 2vw, 1.7rem);
+  color: #1a1a2e;
+  line-height: 1.2;
+  margin-bottom: 18px;
+}
+
+.aboutText {
+  color: #6c757d;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.aboutList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 28px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.aboutList li {
+  color: #1a1a2e;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.aboutBtn {
+  display: inline-block;
+  background: #1a1a2e;
+  color: #ffffff;
+  padding: 12px 28px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  transition: all 0.3s ease;
+  border: 2px solid #1a1a2e;
+}
+
+.aboutBtn:hover {
+  background: #c9a84c;
+  border-color: #c9a84c;
+  color: #1a1a2e;
+  transform: translateY(-2px);
+}
+
+.whyTitle {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  letter-spacing: 2px;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #c9a84c;
+  display: inline-block;
+}
+
+.reasonsGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.reasonCard {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 18px;
+  background: #f8f6f3;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.reasonCard:hover {
+  transform: translateX(8px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.reasonIcon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.reasonTitle {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 4px;
+}
+
+.reasonDesc {
+  font-size: 0.82rem;
+  color: #6c757d;
+  line-height: 1.4;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .aboutGrid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .about {
+    padding: 50px 0;
+  }
+}

@@ -1,0 +1,110 @@
+.testimonials {
+  padding: 40px 0;
+  background: #f8f6f3;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.sectionTitle {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', 'Inter', sans-serif);
+  font-weight: 600;
+  font-size: clamp(1.3rem, 2vw, 1.6rem);
+  color: #1a1a2e;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 12px;
+}
+
+.sectionTitle::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: #c9a84c;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.06);
+  transition: all 0.3s ease;
+  border: 1px solid #f0f0f0;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 35px rgba(0,0,0,0.1);
+  border-color: #c9a84c;
+}
+
+.stars {
+  color: #c9a84c;
+  font-size: 1rem;
+  margin-bottom: 14px;
+  letter-spacing: 2px;
+}
+
+.text {
+  color: #444;
+  font-size: 0.92rem;
+  line-height: 1.7;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #1a1a2e;
+  color: #c9a84c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #1a1a2e;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .testimonials {
+    padding: 50px 0;
+  }
+  .card {
+    padding: 22px;
+  }
+}

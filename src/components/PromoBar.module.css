@@ -1,0 +1,269 @@
+.promo {
+  background: linear-gradient(135deg, #11111d 0%, #161626 50%, #0d0d16 100%);
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+  border-top: 1px solid rgba(201, 168, 76, 0.15);
+  border-bottom: 1px solid rgba(201, 168, 76, 0.15);
+}
+
+.promoInner {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 36px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+}
+
+/* ─── Left Content ─── */
+.promoContent {
+  flex: 1;
+  max-width: 580px;
+}
+
+.promoTagWrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.promoTag {
+  display: inline-block;
+  background: rgba(201, 168, 76, 0.15);
+  color: #c9a84c;
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  border: 1px solid rgba(201, 168, 76, 0.3);
+}
+
+.badgeHot {
+  display: inline-block;
+  background: linear-gradient(135deg, #ff4757, #ff6b81);
+  color: #ffffff;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.promoTitle {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', 'Inter', sans-serif);
+  font-weight: 700;
+  font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+  color: #ffffff;
+  margin-bottom: 12px;
+  line-height: 1.25;
+}
+
+.highlightText {
+  color: #c9a84c;
+  background: linear-gradient(135deg, #c9a84c, #e0c068);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.promoText {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.92rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* ─── Feature Highlights List ─── */
+.promoFeatures {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.checkIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(201, 168, 76, 0.2);
+  color: #c9a84c;
+  font-size: 0.75rem;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+/* ─── Button ─── */
+.promoBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #c9a84c, #e0c068);
+  color: #1a1a2e;
+  padding: 12px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  transition: all 0.3s ease;
+  border: none;
+  box-shadow: 0 4px 16px rgba(201, 168, 76, 0.25);
+}
+
+.promoBtn:hover {
+  background: linear-gradient(135deg, #e0c068, #c9a84c);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(201, 168, 76, 0.4);
+}
+
+.promoBtn svg {
+  transition: transform 0.3s ease;
+}
+
+.promoBtn:hover svg {
+  transform: translateX(4px);
+}
+
+/* ─── Right Image Showcase ─── */
+.promoImageWrapper {
+  flex: 1.1;
+  max-width: 620px;
+  width: 100%;
+}
+
+.imageCard {
+  position: relative;
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+  aspect-ratio: 16 / 9;
+}
+
+.promoImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.imageCard:hover .promoImg {
+  transform: scale(1.05);
+}
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 50%, rgba(15, 15, 26, 0.5) 100%);
+  pointer-events: none;
+}
+
+/* ─── Discount Badge on Image ─── */
+.discountBadge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 2;
+  background: rgba(17, 17, 29, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1.5px solid #c9a84c;
+  padding: 10px 18px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  animation: pulse 2.5s ease-in-out infinite;
+}
+
+.badgeUp {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  line-height: 1;
+}
+
+.badgeValue {
+  color: #c9a84c;
+  font-size: 1.8rem;
+  font-weight: 900;
+  line-height: 1;
+  margin: 2px 0;
+}
+
+.badgeOff {
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  line-height: 1;
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 16px rgba(201, 168, 76, 0.3); }
+  50% { box-shadow: 0 0 30px rgba(201, 168, 76, 0.6); }
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 1024px) {
+  .promoInner {
+    gap: 32px;
+    padding: 30px 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .promoInner {
+    flex-direction: column;
+    text-align: center;
+    padding: 32px 20px;
+    gap: 28px;
+  }
+
+  .promoContent {
+    max-width: 100%;
+  }
+
+  .promoTagWrap {
+    justify-content: center;
+  }
+
+  .promoFeatures {
+    align-items: center;
+  }
+
+  .promoBtn {
+    justify-content: center;
+  }
+
+  .discountBadge {
+    top: 12px;
+    right: 12px;
+    padding: 8px 14px;
+  }
+
+  .badgeValue {
+    font-size: 1.4rem;
+  }
+}
