@@ -257,6 +257,9 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 32px;
   }
+  .footerBottom {
+    padding-bottom: 75px;
+  }
 }
 
 @media (max-width: 640px) {
