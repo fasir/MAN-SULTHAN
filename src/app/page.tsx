@@ -2,6 +2,7 @@ import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import Features from '@/components/Features';
 import Categories from '@/components/Categories';
+import TrendingProducts from '@/components/TrendingProducts';
 import Services from '@/components/Services';
 import Products from '@/components/Products';
 import PromoBar from '@/components/PromoBar';
@@ -17,9 +18,9 @@ export default function Home() {
         <Hero />
         <Features />
         <Categories />
-
-        <Products />
+        <TrendingProducts />
         <Services />
+        <Products />
         <PromoBar />
         <About />
         <Testimonials />
