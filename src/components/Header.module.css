@@ -7,7 +7,7 @@
 
 /* ─── Top Bar ─── */
 .topBar {
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  background: #0a233c;
   color: #ffffff;
   font-size: 0.78rem;
   padding: 7px 0;
@@ -228,7 +228,7 @@
   width: 42px;
   height: 42px;
   border-radius: 12px;
-  background: #1a1a2e;
+  background: #c9a84c;
   border: none;
   color: #ffffff;
   cursor: pointer;

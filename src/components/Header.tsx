@@ -98,6 +98,7 @@ const Header = () => {
                 </Link>
               </div>
             </div>
+            <Link href="#servicing" className={styles.navLink}>SERVICING</Link>
             <Link href="#deals" className={styles.navLink}>
               DEALS
               <span className={styles.badge}>HOT</span>
@@ -249,6 +250,7 @@ const Header = () => {
           <Link href="#mobiles" className={styles.mobileNavLink} onClick={() => setMobileMenuOpen(false)}>MOBILE &amp; ACCESSORIES</Link>
           <Link href="#laptops" className={styles.mobileNavLink} onClick={() => setMobileMenuOpen(false)}>LAPTOP &amp; ACCESSORIES</Link>
           <Link href="#clocks" className={styles.mobileNavLink} onClick={() => setMobileMenuOpen(false)}>CLOCKS</Link>
+          <Link href="#servicing" className={styles.mobileNavLink} onClick={() => setMobileMenuOpen(false)}>REPAIR &amp; SERVICING</Link>
           <Link href="#deals" className={styles.mobileNavLink} onClick={() => setMobileMenuOpen(false)}>
             DEALS <span className={styles.badge}>HOT</span>
           </Link>
