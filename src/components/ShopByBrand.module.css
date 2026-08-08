@@ -1,0 +1,151 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   SHOP BY BRAND — Grid with Hover Effects
+   ═══════════════════════════════════════════════════════════════════════════ */
+.section {
+  padding: 50px 0;
+  background: #ffffff;
+  border-bottom: 1px solid #e8e5dc;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ─── Header ─── */
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.sectionTag {
+  display: inline-block;
+  color: #c9a84c;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.sectionTitle {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', 'Inter', sans-serif);
+  font-weight: 700;
+  font-size: clamp(1.4rem, 2.2vw, 1.8rem);
+  color: #0a233c;
+  margin-bottom: 8px;
+}
+
+.sectionSubtitle {
+  color: #6c757d;
+  font-size: 0.92rem;
+  max-width: 480px;
+  margin: 0 auto;
+  line-height: 1.55;
+}
+
+/* ─── Brand Grid ─── */
+.brandGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+
+.brandCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 28px 16px;
+  background: #faf9f6;
+  border: 1px solid #e8e5dc;
+  border-radius: 16px;
+  text-decoration: none;
+  transition: all 0.35s ease;
+  cursor: pointer;
+}
+
+.brandCard:hover {
+  transform: translateY(-6px);
+  border-color: #c9a84c;
+  box-shadow: 0 12px 32px rgba(201, 168, 76, 0.18);
+  background: #ffffff;
+}
+
+.brandLogo {
+  font-size: 2.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  background: #ffffff;
+  border: 1px solid #e8e5dc;
+  border-radius: 50%;
+  transition: all 0.35s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.brandCard:hover .brandLogo {
+  background: linear-gradient(135deg, rgba(201, 168, 76, 0.1), rgba(201, 168, 76, 0.05));
+  border-color: rgba(201, 168, 76, 0.3);
+  transform: scale(1.08);
+  box-shadow: 0 4px 16px rgba(201, 168, 76, 0.2);
+}
+
+.brandName {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #0a233c;
+  letter-spacing: 0.3px;
+}
+
+.brandCount {
+  font-size: 0.72rem;
+  color: #6c757d;
+  font-weight: 500;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 1024px) {
+  .brandGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .brandGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  .brandCard {
+    padding: 20px 12px;
+  }
+  .brandLogo {
+    font-size: 1.8rem;
+    width: 52px;
+    height: 52px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 36px 0;
+  }
+  .container {
+    padding: 0 16px;
+  }
+  .brandGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .brandCard {
+    padding: 18px 10px;
+    border-radius: 12px;
+  }
+  .brandName {
+    font-size: 0.82rem;
+  }
+}

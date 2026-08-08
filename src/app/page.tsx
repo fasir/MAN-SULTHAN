@@ -2,14 +2,15 @@ import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import Features from '@/components/Features';
 import Categories from '@/components/Categories';
-import TrendingProducts from '@/components/TrendingProducts';
-import Services from '@/components/Services';
-import Products from '@/components/Products';
-import PromoBar from '@/components/PromoBar';
-import About from '@/components/About';
-import Testimonials from '@/components/Testimonials';
+import NewArrivals from '@/components/NewArrivals';
+import BestSellers from '@/components/BestSellers';
+import ShopByBrand from '@/components/ShopByBrand';
+import GiftProducts from '@/components/GiftProducts';
+import WhyChooseUs from '@/components/WhyChooseUs';
 import Footer from '@/components/Footer';
 import MobileBottomNav from '@/components/MobileBottomNav';
+import About from '@/components/About';
+import Testimonials from '@/components/Testimonials';
 
 export default function Home() {
   return (
@@ -19,12 +20,13 @@ export default function Home() {
         <Hero />
         <Features />
         <Categories />
-        <TrendingProducts />
-        <Services />
-        <Products />
-        <PromoBar />
+        <NewArrivals />
+        <BestSellers />
+        <ShopByBrand />
+        <GiftProducts />
         <About />
         <Testimonials />
+        {/* <WhyChooseUs /> */}
       </main>
       <Footer />
       <MobileBottomNav />

@@ -5,9 +5,85 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styles from './Header.module.css';
 
+interface MegaCategory {
+  title: string;
+  icon: string;
+  items: string[];
+}
+
+const megaMenuData: MegaCategory[] = [
+  {
+    title: "Perfumes",
+    icon: "🌸",
+    items: [
+      "Men's Perfumes",
+      "Women's Perfumes",
+      "Unisex Perfumes",
+      "Arabian Perfumes",
+      "French Perfumes",
+      "Attar / Perfume Oil",
+      "Eau de Parfum (EDP)",
+      "Eau de Toilette (EDT)",
+      "Mini Perfumes",
+    ],
+  },
+  {
+    title: "Oudh & Bakhoor",
+    icon: "🌿",
+    items: [
+      "Pure Oudh",
+      "Bakhoor",
+      "Muattar",
+      "Incense",
+      "Oudh Gift Sets",
+    ],
+  },
+  {
+    title: "Watches",
+    icon: "⌚",
+    items: [
+      "Men's Watches",
+      "Women's Watches",
+      "Smart Watches",
+      "Luxury Watches",
+      "Premium Brands",
+    ],
+  },
+  {
+    title: "Fashion & Accessories",
+    icon: "💎",
+    items: [
+      "Sunglasses",
+      "Wallets",
+      "Belts",
+      "Handbags",
+      "Jewelry",
+      "Caps",
+      "Scarves",
+      "Travel Accessories",
+    ],
+  },
+  {
+    title: "Gift Sets",
+    icon: "🎁",
+    items: [
+      "Perfume Gift Sets",
+      "Luxury Gift Boxes",
+      "Corporate Gifts",
+      "Eid Collection",
+      "Wedding Collection",
+    ],
+  },
+];
+
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [openMobileAccordion, setOpenMobileAccordion] = useState<string | null>(null);
+
+  const toggleAccordion = (title: string) => {
+    setOpenMobileAccordion(openMobileAccordion === title ? null : title);
+  };
 
   return (
     <header className={styles.header}>
@@ -72,99 +148,132 @@ const Header = () => {
           {/* Center Nav Links */}
           <div className={styles.navCenter}>
             <Link href="/" className={styles.navLink}>HOME</Link>
-            <div className={styles.dropdown}>
-              <span className={styles.navLink}>
-                CATEGORIES
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" style={{ marginLeft: '4px' }}>
+
+            {/* FULL MEGA MENU TRIGGER - ALL ITEMS */}
+            <div className={`${styles.navLink} ${styles.megaDropdown}`}>
+              <span style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                ALL ITEMS
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" style={{ display: 'inline-block', verticalAlign: 'middle' }}>
                   <polyline points="6 9 12 15 18 9" />
                 </svg>
               </span>
-              <div className={styles.dropdownMenu}>
-                <Link href="#perfumes" className={styles.dropdownItem}>
-                  <span className={styles.dropdownIcon}>
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                      <path d="M7 10h10v11a2 2 0 01-2 2H9a2 2 0 01-2-2V10z" fill="#c9a84c" fillOpacity="0.3" stroke="#c9a84c" strokeWidth="1.8" />
-                      <path d="M10 4h4v3h-4V4z" fill="#c9a84c" stroke="#c9a84c" strokeWidth="1.5" />
-                      <path d="M12 1v3M9 7h6" stroke="#c9a84c" strokeWidth="1.8" strokeLinecap="round" />
-                    </svg>
-                  </span>
-                  Perfumes
-                </Link>
-                <Link href="#watches" className={styles.dropdownItem}>
-                  <span className={styles.dropdownIcon}>
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                      <circle cx="12" cy="12" r="7" fill="#c9a84c" fillOpacity="0.3" stroke="#c9a84c" strokeWidth="1.8" />
-                      <path d="M12 9v3l2 2" stroke="#c9a84c" strokeWidth="1.8" strokeLinecap="round" />
-                      <path d="M9 1h6m-6 22h6" stroke="#c9a84c" strokeWidth="2" strokeLinecap="round" />
-                    </svg>
-                  </span>
-                  Watches
-                </Link>
-                <Link href="#glasses" className={styles.dropdownItem}>
-                  <span className={styles.dropdownIcon}>
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                      <circle cx="6.5" cy="14.5" r="3.5" fill="#c9a84c" fillOpacity="0.4" stroke="#c9a84c" strokeWidth="1.8" />
-                      <circle cx="17.5" cy="14.5" r="3.5" fill="#c9a84c" fillOpacity="0.4" stroke="#c9a84c" strokeWidth="1.8" />
-                      <path d="M10 14.5h4M3 13L1 7m22 6l-2-6" stroke="#c9a84c" strokeWidth="1.8" strokeLinecap="round" />
-                    </svg>
-                  </span>
-                  Cooling Glasses
-                </Link>
-                <Link href="#mobiles" className={styles.dropdownItem}>
-                  <span className={styles.dropdownIcon}>
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                      <rect x="5" y="2" width="14" height="20" rx="3" fill="#c9a84c" fillOpacity="0.3" stroke="#c9a84c" strokeWidth="1.8" />
-                      <line x1="10" y1="5" x2="14" y2="5" stroke="#c9a84c" strokeWidth="1.8" strokeLinecap="round" />
-                      <circle cx="12" cy="18" r="1" fill="#c9a84c" />
-                    </svg>
-                  </span>
-                  Mobiles
-                </Link>
-                <Link href="#mobile-acc" className={styles.dropdownItem}>
-                  <span className={styles.dropdownIcon}>
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                      <path d="M3 12a9 9 0 1118 0v7a2 2 0 01-2 2h-2a2 2 0 01-2-2v-3a2 2 0 012-2h4" stroke="#c9a84c" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-                      <path d="M3 12v7a2 2 0 002 2h2a2 2 0 002-2v-3a2 2 0 00-2-2H3" fill="#c9a84c" fillOpacity="0.4" stroke="#c9a84c" strokeWidth="1.8" strokeLinejoin="round" />
-                    </svg>
-                  </span>
-                  Mobile Accessories
-                </Link>
-                <Link href="#laptops" className={styles.dropdownItem}>
-                  <span className={styles.dropdownIcon}>
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                      <rect x="3" y="4" width="18" height="12" rx="2" fill="#c9a84c" fillOpacity="0.3" stroke="#c9a84c" strokeWidth="1.8" />
-                      <path d="M1 18h22v1a1 1 0 01-1 1H2a1 1 0 01-1-1v-1z" fill="#c9a84c" fillOpacity="0.6" stroke="#c9a84c" strokeWidth="1.5" />
-                    </svg>
-                  </span>
-                  Laptops
-                </Link>
-                <Link href="#laptop-acc" className={styles.dropdownItem}>
-                  <span className={styles.dropdownIcon}>
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                      <rect x="6" y="3" width="12" height="18" rx="6" fill="#c9a84c" fillOpacity="0.3" stroke="#c9a84c" strokeWidth="1.8" />
-                      <line x1="12" y1="3" x2="12" y2="9" stroke="#c9a84c" strokeWidth="1.8" />
-                    </svg>
-                  </span>
-                  Laptop Accessories
-                </Link>
-                <Link href="#clocks" className={styles.dropdownItem}>
-                  <span className={styles.dropdownIcon}>
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                      <circle cx="12" cy="12" r="9" fill="#c9a84c" fillOpacity="0.3" stroke="#c9a84c" strokeWidth="1.8" />
-                      <path d="M12 7v5l3 3" stroke="#c9a84c" strokeWidth="1.8" strokeLinecap="round" />
-                    </svg>
-                  </span>
-                  Clocks
-                </Link>
+              
+              {/* Full Width 5-Column Mega Menu Panel */}
+              <div className={styles.megaMenu}>
+                <div className={styles.megaMenuInner}>
+                  {megaMenuData.map((cat, idx) => (
+                    <div key={idx} className={styles.megaColumn}>
+                      <div className={styles.megaTitle}>
+                        <span className={styles.megaTitleIcon}>{cat.icon}</span>
+                        {cat.title}
+                      </div>
+                      <ul className={styles.megaList}>
+                        {cat.items.map((sub, i) => (
+                          <li key={i}>
+                            <Link href="/products" className={styles.megaItemLink}>
+                              {sub}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+
+                  {/* Bottom Promo Strip inside Mega Menu */}
+                  <div className={styles.megaPromoCard}>
+                    <div className={styles.megaPromoText}>
+                      <span>✨ Exclusive Eid &amp; Luxury Collections Available Now!</span>
+                    </div>
+                    <Link href="/products" className={styles.megaPromoBtn}>
+                      EXPLORE ALL COLLECTIONS →
+                    </Link>
+                  </div>
+                </div>
               </div>
             </div>
-            <Link href="#servicing" className={styles.navLink}>SERVICING</Link>
-            <Link href="#deals" className={styles.navLink}>
-              DEALS
-              <span className={styles.badge}>HOT</span>
-            </Link>
-            <Link href="#products" className={styles.navLink}>NEW ARRIVALS</Link>
-            <Link href="#about" className={styles.navLink}>ABOUT</Link>
+
+            {/* Perfumes Dropdown */}
+            <div className={styles.dropdown}>
+              <Link href="/products" className={styles.navLink} style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                PERFUMES
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" style={{ display: 'inline-block', verticalAlign: 'middle' }}>
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </Link>
+              <div className={styles.dropdownMenu}>
+                {megaMenuData[0].items.map((item, idx) => (
+                  <Link key={idx} href="/products" className={styles.dropdownItem}>
+                    • {item}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* Oudh & Bakhoor Dropdown */}
+            <div className={styles.dropdown}>
+              <Link href="/products" className={styles.navLink} style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                OUDH &amp; BAKHOOR
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" style={{ display: 'inline-block', verticalAlign: 'middle' }}>
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </Link>
+              <div className={styles.dropdownMenu}>
+                {megaMenuData[1].items.map((item, idx) => (
+                  <Link key={idx} href="/products" className={styles.dropdownItem}>
+                    • {item}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* Watches Dropdown */}
+            <div className={styles.dropdown}>
+              <Link href="/products" className={styles.navLink} style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                WATCHES
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" style={{ display: 'inline-block', verticalAlign: 'middle' }}>
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </Link>
+              <div className={styles.dropdownMenu}>
+                {megaMenuData[2].items.map((item, idx) => (
+                  <Link key={idx} href="/products" className={styles.dropdownItem}>
+                    • {item}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* Accessories Dropdown */}
+            <div className={styles.dropdown}>
+              <Link href="/products" className={styles.navLink} style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                ACCESSORIES
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" style={{ display: 'inline-block', verticalAlign: 'middle' }}>
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </Link>
+              <div className={styles.dropdownMenu}>
+                {megaMenuData[3].items.map((item, idx) => (
+                  <Link key={idx} href="/products" className={styles.dropdownItem}>
+                    • {item}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* Gift Sets Dropdown */}
+            <div className={styles.dropdown}>
+              <Link href="/products" className={styles.navLink} style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                GIFT SETS
+                <span className={styles.badge}>HOT</span>
+              </Link>
+              <div className={styles.dropdownMenu}>
+                {megaMenuData[4].items.map((item, idx) => (
+                  <Link key={idx} href="/products" className={styles.dropdownItem}>
+                    • {item}
+                  </Link>
+                ))}
+              </div>
+            </div>
           </div>
 
           {/* Right Side - E-Commerce Actions */}
@@ -182,7 +291,7 @@ const Header = () => {
             </button>
 
             {/* Account */}
-            <Link href="#account" className={styles.iconBtn} aria-label="My Account">
+            <Link href="/account" className={styles.iconBtn} aria-label="My Account">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                 <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
                 <circle cx="12" cy="7" r="4" fill="#c9a84c" fillOpacity="0.3" stroke="currentColor" strokeWidth="1.8" />
@@ -190,7 +299,7 @@ const Header = () => {
             </Link>
 
             {/* Wishlist */}
-            <Link href="#wishlist" className={styles.iconBtn} aria-label="Wishlist">
+            <Link href="/products" className={styles.iconBtn} aria-label="Wishlist">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                 <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" fill="#c9a84c" fillOpacity="0.25" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
               </svg>
@@ -198,7 +307,7 @@ const Header = () => {
             </Link>
 
             {/* Cart */}
-            <Link href="#cart" className={styles.cartBtn} aria-label="Shopping Cart">
+            <Link href="/cart" className={styles.cartBtn} aria-label="Shopping Cart">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                 <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" fill="#c9a84c" fillOpacity="0.3" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
                 <line x1="3" y1="6" x2="21" y2="6" stroke="currentColor" strokeWidth="1.8" />
@@ -229,7 +338,7 @@ const Header = () => {
             </svg>
             <input
               type="text"
-              placeholder="Search for perfumes, watches, accessories..."
+              placeholder="Search for perfumes, oudh, watches, accessories..."
               className={styles.searchInput}
             />
             <button
@@ -248,7 +357,7 @@ const Header = () => {
 
       {/* Mobile Menu Overlay */}
       <div className={`${styles.mobileOverlay} ${mobileMenuOpen ? styles.mobileOverlayOpen : ''}`}>
-        <div className={styles.mobileMenuHeader}>
+        <div className={styles.mobileNavHeader}>
           <div className={styles.mobileLogoWrap}>
             <Image
               src="/logo.png"
@@ -272,20 +381,20 @@ const Header = () => {
 
         {/* Mobile Quick Actions */}
         <div className={styles.mobileQuickActions}>
-          <Link href="#account" className={styles.mobileQuickBtn} onClick={() => setMobileMenuOpen(false)}>
+          <Link href="/account" className={styles.mobileQuickBtn} onClick={() => setMobileMenuOpen(false)}>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
               <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
               <circle cx="12" cy="7" r="4" fill="#c9a84c" fillOpacity="0.3" stroke="currentColor" strokeWidth="1.8" />
             </svg>
             <span>Account</span>
           </Link>
-          <Link href="#wishlist" className={styles.mobileQuickBtn} onClick={() => setMobileMenuOpen(false)}>
+          <Link href="/products" className={styles.mobileQuickBtn} onClick={() => setMobileMenuOpen(false)}>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
               <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" fill="#c9a84c" fillOpacity="0.3" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
             </svg>
             <span>Wishlist</span>
           </Link>
-          <Link href="#cart" className={styles.mobileQuickBtn} onClick={() => setMobileMenuOpen(false)}>
+          <Link href="/cart" className={styles.mobileQuickBtn} onClick={() => setMobileMenuOpen(false)}>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
               <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" fill="#c9a84c" fillOpacity="0.3" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
               <line x1="3" y1="6" x2="21" y2="6" stroke="currentColor" strokeWidth="1.8" />
@@ -302,22 +411,30 @@ const Header = () => {
           </Link>
         </div>
 
+        {/* Mobile Accordion Nav Links */}
         <div className={styles.mobileNavLinks}>
           <Link href="/" className={styles.mobileNavLink} onClick={() => setMobileMenuOpen(false)}>HOME</Link>
-          <Link href="#perfumes" className={styles.mobileNavLink} onClick={() => setMobileMenuOpen(false)}>PERFUMES</Link>
-          <Link href="#watches" className={styles.mobileNavLink} onClick={() => setMobileMenuOpen(false)}>WATCHES</Link>
-          <Link href="#glasses" className={styles.mobileNavLink} onClick={() => setMobileMenuOpen(false)}>COOLING GLASSES</Link>
-          <Link href="#mobiles" className={styles.mobileNavLink} onClick={() => setMobileMenuOpen(false)}>MOBILE &amp; ACCESSORIES</Link>
-          <Link href="#laptops" className={styles.mobileNavLink} onClick={() => setMobileMenuOpen(false)}>LAPTOP &amp; ACCESSORIES</Link>
-          <Link href="#clocks" className={styles.mobileNavLink} onClick={() => setMobileMenuOpen(false)}>CLOCKS</Link>
-          <Link href="#servicing" className={styles.mobileNavLink} onClick={() => setMobileMenuOpen(false)}>REPAIR &amp; SERVICING</Link>
-          <Link href="#deals" className={styles.mobileNavLink} onClick={() => setMobileMenuOpen(false)}>
-            DEALS <span className={styles.badge}>HOT</span>
-          </Link>
-          <Link href="#products" className={styles.mobileNavLink} onClick={() => setMobileMenuOpen(false)}>NEW ARRIVALS</Link>
-          <Link href="#about" className={styles.mobileNavLink} onClick={() => setMobileMenuOpen(false)}>ABOUT</Link>
-          <Link href="#contact" className={styles.mobileNavLink} onClick={() => setMobileMenuOpen(false)}>CONTACT</Link>
-          <Link href="#products" className={styles.mobileShopBtn} onClick={() => setMobileMenuOpen(false)}>SHOP NOW</Link>
+
+          {/* Accordions for each Mega Category */}
+          {megaMenuData.map((cat, idx) => (
+            <div key={idx} className={styles.mobileAccordionGroup}>
+              <button className={styles.mobileAccordionHeader} onClick={() => toggleAccordion(cat.title)}>
+                <span>{cat.icon} {cat.title.toUpperCase()}</span>
+                <span>{openMobileAccordion === cat.title ? '−' : '+'}</span>
+              </button>
+              {openMobileAccordion === cat.title && (
+                <div className={styles.mobileAccordionBody}>
+                  {cat.items.map((sub, i) => (
+                    <Link key={i} href="/products" className={styles.mobileSubLink} onClick={() => setMobileMenuOpen(false)}>
+                      {sub}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+          ))}
+
+          <Link href="/products" className={styles.mobileShopBtn} onClick={() => setMobileMenuOpen(false)}>SHOP ALL PRODUCTS</Link>
         </div>
       </div>
     </header>

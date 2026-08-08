@@ -102,7 +102,7 @@
 .navCenter {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 28px;
   flex: 1;
   justify-content: center;
 }
@@ -110,10 +110,10 @@
 .navLink {
   color: #0a233c;
   text-decoration: none;
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 1.2px;
-  padding: 8px 0;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 28px 0;
   position: relative;
   transition: color 0.3s ease;
   cursor: pointer;
@@ -125,7 +125,7 @@
 .navLink::after {
   content: '';
   position: absolute;
-  bottom: 0;
+  bottom: 20px;
   left: 50%;
   width: 0;
   height: 2px;
@@ -161,15 +161,187 @@
 }
 
 @keyframes badgePulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
 
-  0%,
-  100% {
-    opacity: 1;
-  }
+/* ─── Mega Menu Dropdown Container ─── */
+.megaDropdown {
+  position: static !important;
+}
 
-  50% {
-    opacity: 0.7;
-  }
+.megaMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background: #ffffff;
+  box-shadow: 0 16px 48px rgba(10, 35, 60, 0.15);
+  border-top: 3px solid #c9a84c;
+  border-bottom: 1px solid #e8e5dc;
+  padding: 36px 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 999;
+}
+
+.megaDropdown:hover .megaMenu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.megaMenuInner {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 28px;
+}
+
+.megaColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.megaTitle {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #0a233c;
+  padding-bottom: 10px;
+  border-bottom: 1.5px solid #f4f0e8;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: 0.5px;
+}
+
+.megaTitleIcon {
+  font-size: 1.1rem;
+}
+
+.megaList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  list-style: none;
+}
+
+.megaItemLink {
+  color: #555566;
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.megaItemLink:hover {
+  color: #c9a84c;
+  transform: translateX(4px);
+}
+
+.megaItemLink::before {
+  content: '•';
+  color: #c9a84c;
+  font-size: 0.8rem;
+  opacity: 0.6;
+}
+
+.megaItemLink:hover::before {
+  opacity: 1;
+}
+
+/* Featured Category Banner Card inside Mega Menu */
+.megaPromoCard {
+  grid-column: span 5;
+  margin-top: 16px;
+  padding: 16px 24px;
+  background: linear-gradient(135deg, #0a233c 0%, #143556 100%);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #ffffff;
+}
+
+.megaPromoText {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.megaPromoBtn {
+  background: #c9a84c;
+  color: #0a233c;
+  padding: 8px 18px;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  transition: all 0.2s ease;
+}
+
+.megaPromoBtn:hover {
+  background: #e0c068;
+  transform: translateY(-1px);
+}
+
+/* ─── Standard Single Category Dropdown ─── */
+.dropdown {
+  position: relative;
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  background: #ffffff;
+  min-width: 220px;
+  box-shadow: 0 12px 48px rgba(10, 35, 60, 0.12);
+  border-radius: 12px;
+  padding: 12px 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 100;
+  border-top: 3px solid #c9a84c;
+}
+
+.dropdown:hover .dropdownMenu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.dropdownItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 20px;
+  color: #0a233c;
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.dropdownItem:hover {
+  background: linear-gradient(90deg, #faf6ed, transparent);
+  color: #c9a84c;
+  padding-left: 24px;
 }
 
 /* ─── Right Side E-Commerce Icons ─── */
@@ -219,7 +391,6 @@
   line-height: 1;
 }
 
-/* ─── Cart Button (Highlighted) ─── */
 .cartBtn {
   position: relative;
   display: flex;
@@ -322,60 +493,6 @@
   color: #0a233c;
 }
 
-/* ─── Dropdown ─── */
-.dropdown {
-  position: relative;
-}
-
-.dropdownMenu {
-  position: absolute;
-  top: calc(100% + 12px);
-  left: 50%;
-  transform: translateX(-50%) translateY(8px);
-  background: #ffffff;
-  min-width: 240px;
-  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.12);
-  border-radius: 12px;
-  padding: 8px 0;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: 100;
-  border-top: 3px solid #c9a84c;
-}
-
-.dropdown:hover .dropdownMenu {
-  opacity: 1;
-  visibility: visible;
-  transform: translateX(-50%) translateY(0);
-}
-
-.dropdownItem {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 11px 20px;
-  color: #0a233c;
-  text-decoration: none;
-  font-size: 0.84rem;
-  font-weight: 500;
-  transition: all 0.2s ease;
-  letter-spacing: 0.3px;
-}
-
-.dropdownItem:hover {
-  background: linear-gradient(90deg, #faf6ed, transparent);
-  color: #c9a84c;
-  padding-left: 26px;
-}
-
-.dropdownIcon {
-  font-size: 1rem;
-  width: 20px;
-  text-align: center;
-  flex-shrink: 0;
-}
-
 /* ─── Mobile Menu Button ─── */
 .mobileMenuBtn {
   display: none;
@@ -458,7 +575,7 @@
   transform: rotate(90deg);
 }
 
-/* ─── Mobile Quick Actions ─── */
+/* Mobile Quick Actions */
 .mobileQuickActions {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -492,14 +609,56 @@
   background: rgba(201, 168, 76, 0.08);
 }
 
-/* ─── Mobile Nav Links ─── */
+/* Mobile Accordion Nav Links */
 .mobileNavLinks {
   display: flex;
   flex-direction: column;
-  padding: 12px 24px;
+  padding: 12px 20px;
   gap: 0;
   overflow-y: auto;
   flex: 1;
+}
+
+.mobileAccordionGroup {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.mobileAccordionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 14px 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.mobileAccordionHeader:hover {
+  color: #c9a84c;
+}
+
+.mobileAccordionBody {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 4px 0 14px 14px;
+}
+
+.mobileSubLink {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 0.82rem;
+  transition: color 0.2s ease;
+}
+
+.mobileSubLink:hover {
+  color: #c9a84c;
 }
 
 .mobileNavLink {
@@ -535,25 +694,25 @@
   transition: all 0.3s ease;
 }
 
-.mobileShopBtn:hover {
-  background: linear-gradient(135deg, #b8973d, #c9a84c);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 15px rgba(201, 168, 76, 0.3);
-}
-
-/* ─── Responsive ─── */
-@media (max-width: 1024px) {
+/* Responsive */
+@media (max-width: 1280px) {
   .navCenter {
-    gap: 20px;
+    gap: 18px;
   }
 
   .navLink {
-    font-size: 0.75rem;
-    letter-spacing: 0.8px;
+    font-size: 0.72rem;
+    letter-spacing: 0.5px;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
+  .navCenter {
+    gap: 14px;
+  }
+}
+
+@media (max-width: 900px) {
   .topBar {
     display: none;
   }

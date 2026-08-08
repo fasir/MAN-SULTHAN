@@ -1,0 +1,214 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   WHY CHOOSE US — Trust Section with Stats Strip
+   ═══════════════════════════════════════════════════════════════════════════ */
+.section {
+  padding: 60px 0 50px;
+  background: linear-gradient(180deg, #07192b 0%, #0a233c 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  background-image: radial-gradient(circle, #ffffff 1px, transparent 1px);
+  background-size: 30px 30px;
+  pointer-events: none;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── Header ─── */
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 44px;
+}
+
+.sectionTag {
+  display: inline-block;
+  color: #c9a84c;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.sectionTitle {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', 'Inter', sans-serif);
+  font-weight: 700;
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.titleGold {
+  color: #c9a84c;
+}
+
+.sectionSubtitle {
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 0.92rem;
+  max-width: 520px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ─── Reasons Grid ─── */
+.reasonsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.reasonCard {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: all 0.35s ease;
+}
+
+.reasonCard:hover {
+  background: rgba(201, 168, 76, 0.06);
+  border-color: rgba(201, 168, 76, 0.2);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.reasonIcon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: rgba(201, 168, 76, 0.08);
+  border: 1px solid rgba(201, 168, 76, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reasonTitle {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', 'Inter', sans-serif);
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.reasonDesc {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.45);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ─── Trust Stats Strip ─── */
+.trustStrip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  padding: 28px 40px;
+  background: rgba(201, 168, 76, 0.06);
+  border: 1px solid rgba(201, 168, 76, 0.12);
+  border-radius: 16px;
+}
+
+.trustItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-align: center;
+}
+
+.trustNumber {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', 'Inter', sans-serif);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #c9a84c;
+  letter-spacing: -0.02em;
+}
+
+.trustLabel {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.45);
+  font-weight: 500;
+}
+
+.trustDivider {
+  width: 1px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  flex-shrink: 0;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 1024px) {
+  .reasonsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 50px 0 40px;
+  }
+  .reasonsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+  .reasonCard {
+    padding: 20px 18px;
+  }
+  .trustStrip {
+    flex-wrap: wrap;
+    gap: 24px;
+    padding: 20px 24px;
+  }
+  .trustDivider {
+    display: none;
+  }
+  .trustItem {
+    flex: 0 0 calc(50% - 12px);
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 0 16px;
+  }
+  .reasonsGrid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .reasonCard {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 16px;
+  }
+  .reasonIcon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    flex-shrink: 0;
+  }
+  .reasonTitle {
+    font-size: 0.92rem;
+  }
+  .reasonDesc {
+    font-size: 0.8rem;
+  }
+}

@@ -73,7 +73,7 @@ const MobileBottomNav = () => {
 
         {/* Item 4: Cart */}
         <Link
-          href="#cart"
+          href="/cart"
           className={`${styles.navItem} ${activeTab === 'cart' ? styles.active : ''}`}
           onClick={() => setActiveTab('cart')}
         >
