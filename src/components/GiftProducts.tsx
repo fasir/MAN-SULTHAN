@@ -270,112 +270,122 @@ const GiftProducts = () => {
 
         {/* ═══════ BUILD CUSTOM GIFT BOX ═══════ */}
         <div className={styles.customGiftBox}>
-          {/* Decorative corner ribbons */}
+          {/* Decorative corner accents */}
           <div className={styles.cornerRibbonTL} />
           <div className={styles.cornerRibbonBR} />
 
-          {/* Top sparkle accents */}
-          <div className={styles.sparkles}>
-            <span className={styles.sparkle} />
-            <span className={styles.sparkle} />
-            <span className={styles.sparkle} />
-          </div>
-
           <div className={styles.customGiftInner}>
-            {/* ── Left: 3D Gift Box Visual ── */}
-            <div className={styles.giftBoxVisual}>
-              <div className={styles.giftBox3d}>
-                {/* Box body */}
-                <div className={styles.boxBody}>
-                  <div className={styles.boxFront} />
-                  <div className={styles.boxSide} />
+            {/* ── Left: Visual Highlight & Features ── */}
+            <div className={styles.customGiftLeft}>
+              <div className={styles.giftBoxVisual}>
+                <div className={styles.giftBox3d}>
+                  <div className={styles.boxBody}>
+                    <div className={styles.boxFront} />
+                    <div className={styles.boxSide} />
+                  </div>
+                  <div className={styles.boxLid}>
+                    <div className={styles.boxLidTop} />
+                    <div className={styles.boxLidFront} />
+                  </div>
+                  <div className={styles.boxRibbonV} />
+                  <div className={styles.boxRibbonH} />
+                  <div className={styles.boxBow}>
+                    <div className={styles.bowLeft} />
+                    <div className={styles.bowRight} />
+                    <div className={styles.bowCenter} />
+                  </div>
                 </div>
-                {/* Lid */}
-                <div className={styles.boxLid}>
-                  <div className={styles.boxLidTop} />
-                  <div className={styles.boxLidFront} />
+                <div className={styles.boxShadow} />
+                <span className={styles.boxLabel}>CUSTOM GIFT BOX</span>
+              </div>
+
+              {/* Feature Highlights list */}
+              <div className={styles.giftFeatureList}>
+                <div className={styles.giftFeatureItem}>
+                  <span className={styles.featureIcon}>🎁</span>
+                  <div>
+                    <strong>Custom Selection</strong>
+                    <p>Combine any 2 to 5 luxury items from our collection</p>
+                  </div>
                 </div>
-                {/* Vertical ribbon */}
-                <div className={styles.boxRibbonV} />
-                {/* Horizontal ribbon */}
-                <div className={styles.boxRibbonH} />
-                {/* Bow */}
-                <div className={styles.boxBow}>
-                  <div className={styles.bowLeft} />
-                  <div className={styles.bowRight} />
-                  <div className={styles.bowCenter} />
+                <div className={styles.giftFeatureItem}>
+                  <span className={styles.featureIcon}>🎀</span>
+                  <div>
+                    <strong>Signature Wrapping</strong>
+                    <p>Hand-wrapped in premium satin ribbon & gift box</p>
+                  </div>
+                </div>
+                <div className={styles.giftFeatureItem}>
+                  <span className={styles.featureIcon}>💌</span>
+                  <div>
+                    <strong>Personalized Note</strong>
+                    <p>Free wax-sealed handwritten message included</p>
+                  </div>
                 </div>
               </div>
-              {/* Shadow beneath box */}
-              <div className={styles.boxShadow} />
-              {/* Label */}
-              <span className={styles.boxLabel}>YOUR GIFT</span>
             </div>
 
-            {/* ── Right: Content ── */}
+            {/* ── Right: Content & Interactive Controls ── */}
             <div className={styles.customGiftContent}>
-              <span className={styles.customTag}>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                </svg>
-                BUILD YOUR OWN
-              </span>
-              <h3 className={styles.customTitle}>
-                Create a <span className={styles.customTitleGold}>Custom Gift Box</span>
-              </h3>
-              <p className={styles.customDesc}>
-                Pick any products, choose your wrapping style, add a personal note — we&apos;ll craft the perfect surprise.
-              </p>
+              <div className={styles.customHeaderGroup}>
+                <span className={styles.customTag}>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                  </svg>
+                  BUILD YOUR OWN
+                </span>
+                <h3 className={styles.customTitle}>
+                  Create a <span className={styles.customTitleGold}>Custom Gift Box</span>
+                </h3>
+                <p className={styles.customDesc}>
+                  Select your items, pick a luxury wrapping style, and add a personalized note for an unforgettable unboxing experience.
+                </p>
+              </div>
 
-              {/* ── 3 Steps ── */}
+              {/* ── 3 Steps Row ── */}
               <div className={styles.stepsRow}>
                 <div className={styles.stepCard}>
+                  <span className={styles.stepNum}>01</span>
                   <div className={styles.stepIcon}>
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <circle cx="9" cy="21" r="1" /><circle cx="20" cy="21" r="1" />
                       <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
                     </svg>
                   </div>
-                  <span className={styles.stepNum}>01</span>
                   <span className={styles.stepLabel}>Pick Products</span>
                 </div>
-                <div className={styles.stepConnector}>
-                  <svg width="20" height="12" viewBox="0 0 20 12" fill="none">
-                    <path d="M0 6h16M13 1l5 5-5 5" stroke="rgba(201,168,76,0.4)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </div>
+
+                <div className={styles.stepConnector}>→</div>
+
                 <div className={styles.stepCard}>
+                  <span className={styles.stepNum}>02</span>
                   <div className={styles.stepIcon}>
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
                       <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
                     </svg>
                   </div>
-                  <span className={styles.stepNum}>02</span>
                   <span className={styles.stepLabel}>Personalize</span>
                 </div>
-                <div className={styles.stepConnector}>
-                  <svg width="20" height="12" viewBox="0 0 20 12" fill="none">
-                    <path d="M0 6h16M13 1l5 5-5 5" stroke="rgba(201,168,76,0.4)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </div>
+
+                <div className={styles.stepConnector}>→</div>
+
                 <div className={styles.stepCard}>
+                  <span className={styles.stepNum}>03</span>
                   <div className={styles.stepIcon}>
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <rect x="1" y="3" width="15" height="13" rx="2" ry="2" />
-                      <path d="M16 8h2a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H6" />
                       <circle cx="5.5" cy="18.5" r="2.5" />
                       <circle cx="18.5" cy="18.5" r="2.5" />
                     </svg>
                   </div>
-                  <span className={styles.stepNum}>03</span>
                   <span className={styles.stepLabel}>We Deliver</span>
                 </div>
               </div>
 
               {/* ── Wrapping Style Options ── */}
               <div className={styles.wrappingRow}>
-                <span className={styles.wrappingLabel}>Wrapping Style:</span>
+                <span className={styles.wrappingLabel}>Wrapping Theme:</span>
                 <div className={styles.wrappingOptions}>
                   <button className={`${styles.wrapOption} ${styles.wrapActive}`}>
                     <span className={styles.wrapSwatch} style={{ background: 'linear-gradient(135deg, #c9a84c, #e8c76a)' }} />
@@ -387,17 +397,19 @@ const GiftProducts = () => {
                   </button>
                   <button className={styles.wrapOption}>
                     <span className={styles.wrapSwatch} style={{ background: 'linear-gradient(135deg, #0a233c, #183756)' }} />
-                    <span>Midnight</span>
+                    <span>Midnight Navy</span>
                   </button>
                 </div>
               </div>
 
-              {/* ── Bottom: Price + CTA ── */}
+              {/* ── Bottom: Price & CTA Action Bar ── */}
               <div className={styles.customBottom}>
                 <div className={styles.customPriceInfo}>
-                  <span className={styles.startsAt}>Starts at</span>
-                  <span className={styles.customPrice}>₹2,499</span>
-                  <span className={styles.customPriceNote}>incl. wrapping &amp; delivery</span>
+                  <span className={styles.startsAt}>Starting from</span>
+                  <div className={styles.priceRow}>
+                    <span className={styles.customPrice}>₹2,499</span>
+                    <span className={styles.customPriceNote}>Free Gift Wrap &amp; Express Shipping</span>
+                  </div>
                 </div>
                 <a href="#products" className={styles.buildBtn}>
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -407,19 +419,12 @@ const GiftProducts = () => {
                     <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z" />
                     <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z" />
                   </svg>
-                  Start Building Your Gift
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  Start Building Your Gift Box
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <line x1="5" y1="12" x2="19" y2="12" />
                     <polyline points="12 5 19 12 12 19" />
                   </svg>
                 </a>
-              </div>
-
-              {/* Trust badges */}
-              <div className={styles.trustRow}>
-                <span className={styles.trustBadge}>🎀 Premium Wrapping</span>
-                <span className={styles.trustBadge}>✍️ Handwritten Note</span>
-                <span className={styles.trustBadge}>🚚 Express Delivery</span>
               </div>
             </div>
           </div>

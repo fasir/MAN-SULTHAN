@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import Image from 'next/image';
 import styles from './BestSellers.module.css';
 
@@ -37,12 +38,13 @@ const renderStars = (rating: number) => {
 };
 
 const BestSellers = () => {
+  const [quickViewProduct, setQuickViewProduct] = useState<Product | null>(null);
+
   return (
     <section id="best-sellers" className={styles.section}>
       <div className={styles.container}>
         <div className={styles.sectionHeader}>
           <div className={styles.headerLeft}>
-            <span className={styles.sectionTag}>MOST LOVED</span>
             <h2 className={styles.sectionTitle}>Best Sellers</h2>
           </div>
           <a href="#" className={styles.viewAllBtn}>
@@ -80,12 +82,6 @@ const BestSellers = () => {
                       <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
                     </svg>
                   </button>
-                  <button className={styles.actionBtn} aria-label="Quick view">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-                      <circle cx="12" cy="12" r="3" />
-                    </svg>
-                  </button>
                 </div>
               </div>
               <div className={styles.cardBody}>
@@ -108,12 +104,95 @@ const BestSellers = () => {
                   <span className={styles.offerPrice}>₹{product.offerPrice.toLocaleString()}</span>
                   <span className={styles.oldPrice}>₹{product.oldPrice.toLocaleString()}</span>
                 </div>
-                <button className={styles.addToCart}>ADD TO CART</button>
+                <div className={styles.cardFooter}>
+                  <button
+                    className={styles.addToCart}
+                    onClick={() => alert(`"${product.name}" added to cart!`)}
+                  >
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                      <circle cx="9" cy="21" r="1" />
+                      <circle cx="20" cy="21" r="1" />
+                      <path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6" />
+                    </svg>
+                    Add to Cart
+                  </button>
+                  <button
+                    className={styles.quickViewBtn}
+                    onClick={() => setQuickViewProduct(product)}
+                    aria-label="Quick View"
+                  >
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                      <circle cx="12" cy="12" r="3" />
+                    </svg>
+                    Quick View
+                  </button>
+                </div>
               </div>
             </div>
           ))}
         </div>
       </div>
+
+      {/* Quick View Modal */}
+      {quickViewProduct && (
+        <div className={styles.modalOverlay} onClick={() => setQuickViewProduct(null)}>
+          <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
+            <button className={styles.modalCloseBtn} onClick={() => setQuickViewProduct(null)}>✕</button>
+            <div className={styles.modalGrid}>
+              <div className={styles.modalImageWrapper}>
+                <Image
+                  src={quickViewProduct.image}
+                  alt={quickViewProduct.name}
+                  fill
+                  style={{ objectFit: 'cover' }}
+                />
+                {quickViewProduct.badge && <span className={styles.productBadge}>{quickViewProduct.badge}</span>}
+                <div className={styles.discountBadge}>-{quickViewProduct.discount}%</div>
+              </div>
+              <div className={styles.modalInfo}>
+                <span className={styles.cardCategory}>{quickViewProduct.category}</span>
+                <h2 className={styles.modalTitle}>{quickViewProduct.name}</h2>
+                <div className={styles.cardRating}>
+                  <span className={styles.stars}>{renderStars(quickViewProduct.rating)}</span>
+                  <span className={styles.ratingNum}>({quickViewProduct.rating} rating)</span>
+                </div>
+                <div className={styles.cardPricing} style={{ marginTop: '12px' }}>
+                  <span className={styles.offerPrice} style={{ fontSize: '1.4rem' }}>
+                    ₹{quickViewProduct.offerPrice.toLocaleString()}
+                  </span>
+                  <span className={styles.oldPrice} style={{ fontSize: '1rem' }}>
+                    ₹{quickViewProduct.oldPrice.toLocaleString()}
+                  </span>
+                  <span style={{ color: '#27ae60', fontWeight: '700', fontSize: '0.85rem' }}>({quickViewProduct.discount}% OFF)</span>
+                </div>
+                <p className={styles.modalDescription}>
+                  Best selling favorite! Premium quality {quickViewProduct.name} with over {quickViewProduct.soldCount.toLocaleString()} happy customers. Includes manufacturer warranty and fast shipping.
+                </p>
+                <div className={styles.modalFooterActions}>
+                  <button
+                    className={styles.addToCart}
+                    style={{ padding: '12px 20px', fontSize: '0.88rem' }}
+                    onClick={() => {
+                      alert(`"${quickViewProduct.name}" added to cart!`);
+                      setQuickViewProduct(null);
+                    }}
+                  >
+                    Add to Shopping Cart
+                  </button>
+                  <a
+                    href={`/products/${quickViewProduct.id}`}
+                    className={styles.modalViewFullBtn}
+                    onClick={() => setQuickViewProduct(null)}
+                  >
+                    View Product Details →
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

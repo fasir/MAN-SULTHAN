@@ -71,17 +71,27 @@
 }
 
 .viewAll {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #f5eedc;
   color: #0a233c;
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  border: 1px solid rgba(201, 168, 76, 0.3);
   text-decoration: none;
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 1px;
-  transition: color 0.3s ease;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   white-space: nowrap;
 }
 
 .viewAll:hover {
+  background: #0a233c;
   color: #c9a84c;
+  border-color: #0a233c;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(10, 35, 60, 0.2);
 }
 
 /* ─── Single Row Product Slider Track ─── */

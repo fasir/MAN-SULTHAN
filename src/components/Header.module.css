@@ -88,7 +88,7 @@
 }
 
 .logo {
-  height: 60px;
+  height: 70px;
   width: auto;
   object-fit: contain;
   transition: transform 0.3s ease;
@@ -161,13 +161,24 @@
 }
 
 @keyframes badgePulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.7; }
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.7;
+  }
 }
 
 /* ─── Mega Menu Dropdown Container ─── */
 .megaDropdown {
   position: static !important;
+}
+
+.megaDropdown:hover::after {
+  display: none !important;
 }
 
 .megaMenu {
@@ -177,14 +188,14 @@
   right: 0;
   width: 100%;
   background: #ffffff;
-  box-shadow: 0 16px 48px rgba(10, 35, 60, 0.15);
-  border-top: 3px solid #c9a84c;
-  border-bottom: 1px solid #e8e5dc;
-  padding: 36px 0;
+  box-shadow: 0 20px 60px rgba(10, 35, 60, 0.14);
+  border-top: none; /* Top line removed as requested */
+  border-bottom: 1px solid #e8e4dc;
+  padding: 32px 0 28px;
   opacity: 0;
   visibility: hidden;
-  transform: translateY(12px);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(10px);
+  transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 999;
 }
 
@@ -200,48 +211,76 @@
   padding: 0 32px;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 28px;
+  gap: 32px;
 }
 
 .megaColumn {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  background: transparent;
+  border: none;
+  padding: 0;
 }
 
 .megaTitle {
   font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
-  font-size: 0.95rem;
+  font-size: 0.88rem;
   font-weight: 800;
   color: #0a233c;
-  padding-bottom: 10px;
-  border-bottom: 1.5px solid #f4f0e8;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #f2edd9;
   display: flex;
   align-items: center;
-  gap: 8px;
-  letter-spacing: 0.5px;
+  gap: 10px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.megaTitle::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 36px;
+  height: 2px;
+  background: #c9a84c;
+  border-radius: 1px;
 }
 
 .megaTitleIcon {
-  font-size: 1.1rem;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: #f5eedc;
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  flex-shrink: 0;
 }
 
 .megaList {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
   list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .megaItemLink {
-  color: #555566;
+  color: #4a5568;
   text-decoration: none;
   font-size: 0.82rem;
-  font-weight: 500;
+  font-weight: 600;
+  padding: 5px 0;
   transition: all 0.2s ease;
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
 }
 
 .megaItemLink:hover {
@@ -252,50 +291,58 @@
 .megaItemLink::before {
   content: '•';
   color: #c9a84c;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
+  font-weight: 800;
   opacity: 0.6;
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
 .megaItemLink:hover::before {
   opacity: 1;
+  transform: scale(1.3);
 }
 
 /* Featured Category Banner Card inside Mega Menu */
 .megaPromoCard {
   grid-column: span 5;
-  margin-top: 16px;
-  padding: 16px 24px;
-  background: linear-gradient(135deg, #0a233c 0%, #143556 100%);
-  border-radius: 12px;
+  margin-top: 14px;
+  padding: 16px 28px;
+  background: linear-gradient(135deg, #0a233c 0%, #14375b 100%);
+  border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   color: #ffffff;
+  box-shadow: 0 6px 20px rgba(10, 35, 60, 0.15);
 }
 
 .megaPromoText {
   display: flex;
   align-items: center;
   gap: 12px;
-  font-size: 0.88rem;
-  font-weight: 600;
+  font-size: 0.9rem;
+  font-weight: 700;
 }
 
 .megaPromoBtn {
   background: #c9a84c;
   color: #0a233c;
-  padding: 8px 18px;
-  border-radius: 6px;
+  padding: 9px 22px;
+  border-radius: 30px;
   font-size: 0.78rem;
   font-weight: 800;
   text-decoration: none;
   letter-spacing: 0.5px;
-  transition: all 0.2s ease;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(201, 168, 76, 0.3);
+  white-space: nowrap;
 }
 
 .megaPromoBtn:hover {
-  background: #e0c068;
-  transform: translateY(-1px);
+  background: #ffffff;
+  color: #0a233c;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(255, 255, 255, 0.4);
 }
 
 /* ─── Standard Single Category Dropdown ─── */
@@ -310,14 +357,15 @@
   transform: translateX(-50%) translateY(8px);
   background: #ffffff;
   min-width: 220px;
-  box-shadow: 0 12px 48px rgba(10, 35, 60, 0.12);
-  border-radius: 12px;
+  box-shadow: 0 16px 48px rgba(10, 35, 60, 0.12);
+  border-radius: 14px;
+  border: 1px solid #e8e4dc;
   padding: 12px 0;
   opacity: 0;
   visibility: hidden;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 100;
-  border-top: 3px solid #c9a84c;
+  border-top: none; /* Top line removed as requested */
 }
 
 .dropdown:hover .dropdownMenu {
