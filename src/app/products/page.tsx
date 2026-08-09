@@ -197,11 +197,11 @@ export default function ProductsPage() {
           <div className={styles.heroPromoContainer}>
             <div className={styles.heroPromoImageWrapper}>
               <Image
-                src="/images/banners/promo-mega-deal.png"
+                src="/images/productbanner.jpg"
                 alt="Seal The Mega Deal Now - Hurry Sale 50%"
                 fill
                 priority
-                style={{ objectFit: 'cover', objectPosition: 'left center' }}
+                style={{ objectFit: 'cover', objectPosition: 'center' }}
                 sizes="(max-width: 1440px) 100vw, 1440px"
               />
               <div className={styles.heroPromoOverlay} />
@@ -498,12 +498,12 @@ export default function ProductsPage() {
                               <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
                             </svg>
                           </button>
-                          <button className={styles.actionBtn} aria-label="Quick view">
+                          <Link href={`/products/${product.id}`} className={styles.actionBtn} aria-label="View Details">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                               <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
                               <circle cx="12" cy="12" r="3" />
                             </svg>
-                          </button>
+                          </Link>
                           <button className={styles.actionBtn} aria-label="Compare">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                               <polyline points="17 1 21 5 17 9" />
@@ -553,17 +553,17 @@ export default function ProductsPage() {
                             </svg>
                             Add to Cart
                           </button>
-                          <button
+                          <Link
+                            href={`/products/${product.id}`}
                             className={styles.quickViewBtn}
-                            onClick={() => setQuickViewProduct(product)}
-                            aria-label="Quick View"
+                            aria-label="View Details"
                           >
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                               <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
                               <circle cx="12" cy="12" r="3" />
                             </svg>
-                            Quick View
-                          </button>
+                            View Details
+                          </Link>
                         </div>
                       </div>
                     </div>
