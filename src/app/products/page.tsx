@@ -1,6 +1,7 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect, Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import Header from '@/components/Header';
@@ -86,7 +87,10 @@ const renderStars = (rating: number) => {
 
 const ITEMS_PER_PAGE = 12;
 
-export default function ProductsPage() {
+function ProductsContent() {
+  const searchParams = useSearchParams();
+  const categoryParam = searchParams.get('category');
+
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [selectedTab, setSelectedTab] = useState<string>('Best Seller');
   const [sortBy, setSortBy] = useState<string>('featured');
@@ -97,6 +101,21 @@ export default function ProductsPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [quickViewProduct, setQuickViewProduct] = useState<Product | null>(null);
+
+  useEffect(() => {
+    if (categoryParam) {
+      const match = categoryIcons.find(
+        c => c.name.toLowerCase() === categoryParam.toLowerCase() ||
+             categoryParam.toLowerCase().includes(c.name.toLowerCase()) ||
+             c.name.toLowerCase().includes(categoryParam.toLowerCase())
+      );
+      if (match) {
+        setSelectedCategory(match.name);
+      } else {
+        setSelectedCategory(categoryParam);
+      }
+    }
+  }, [categoryParam]);
 
   const togglePriceRange = (index: number) => {
     setSelectedPriceRanges(prev =>
@@ -671,5 +690,13 @@ export default function ProductsPage() {
       <Footer />
       <MobileBottomNav />
     </div>
+  );
+}
+
+export default function ProductsPage() {
+  return (
+    <Suspense fallback={null}>
+      <ProductsContent />
+    </Suspense>
   );
 }

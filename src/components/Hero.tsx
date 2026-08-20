@@ -10,25 +10,25 @@ const rawSlides = [
     id: 's1',
     image: '/images/banners/banner-two.webp',
     alt: 'MAN SULTHAN Premium Lifestyle Store',
-    link: '#products'
+    link: '/products'
   },
   {
     id: 's2',
     image: '/images/banners/banner-three.png',
     alt: 'Special Offers & Exclusive Collections',
-    link: '#deals'
+    link: '/products?tab=Hot+Deals'
   },
   {
     id: 's3',
     image: '/images/banners/banner-two.webp',
     alt: 'Luxury Perfumes & Fragrances',
-    link: '#perfumes'
+    link: '/products?category=Perfume'
   },
   {
     id: 's4',
     image: '/images/banners/banner-three.png',
     alt: 'Premium Timepieces & Watches',
-    link: '#watches'
+    link: '/products?category=Watch'
   }
 ];
 

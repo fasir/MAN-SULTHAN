@@ -2,6 +2,7 @@
 
 import { useRef } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import styles from './GiftProducts.module.css';
 
 interface BundleItem {
@@ -162,7 +163,7 @@ const GiftProducts = () => {
                 </svg>
               </button>
             </div>
-            <a href="#products" className={styles.viewAll}>VIEW ALL GIFTS →</a>
+            <Link href="/products" className={styles.viewAll}>VIEW ALL GIFTS →</Link>
           </div>
         </div>
 
@@ -411,7 +412,7 @@ const GiftProducts = () => {
                     <span className={styles.customPriceNote}>Free Gift Wrap &amp; Express Shipping</span>
                   </div>
                 </div>
-                <a href="#products" className={styles.buildBtn}>
+                <Link href="/products" className={styles.buildBtn}>
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <polyline points="20 12 20 22 4 22 4 12" />
                     <rect x="2" y="7" width="20" height="5" />
@@ -424,7 +425,7 @@ const GiftProducts = () => {
                     <line x1="5" y1="12" x2="19" y2="12" />
                     <polyline points="12 5 19 12 12 19" />
                   </svg>
-                </a>
+                </Link>
               </div>
             </div>
           </div>

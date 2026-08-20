@@ -48,13 +48,13 @@ const BestSellers = () => {
           <div className={styles.headerLeft}>
             <h2 className={styles.sectionTitle}>Best Sellers</h2>
           </div>
-          <a href="#" className={styles.viewAllBtn}>
+          <Link href="/products?tab=Best+Seller" className={styles.viewAllBtn}>
             View All
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <line x1="5" y1="12" x2="19" y2="12" />
               <polyline points="12 5 19 12 12 19" />
             </svg>
-          </a>
+          </Link>
         </div>
 
         {/* 2-Row Grid */}
@@ -67,7 +67,7 @@ const BestSellers = () => {
                   <span className={styles.rankNumber}>#{idx + 1}</span>
                 </div>
               )}
-              <div className={styles.cardImageWrapper}>
+              <Link href={`/products/${product.id}`} className={styles.cardImageWrapper}>
                 <Image
                   src={product.image}
                   alt={product.name}
@@ -77,17 +77,19 @@ const BestSellers = () => {
                 />
                 <div className={styles.discountBadge}>-{product.discount}%</div>
                 {product.badge && <span className={styles.productBadge}>{product.badge}</span>}
-                <div className={styles.cardActions}>
+                <div className={styles.cardActions} onClick={(e) => e.preventDefault()}>
                   <button className={styles.actionBtn} aria-label="Add to wishlist">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                       <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
                     </svg>
                   </button>
                 </div>
-              </div>
+              </Link>
               <div className={styles.cardBody}>
                 <span className={styles.cardCategory}>{product.category}</span>
-                <h3 className={styles.cardName}>{product.name}</h3>
+                <h3 className={styles.cardName}>
+                  <Link href={`/products/${product.id}`}>{product.name}</Link>
+                </h3>
                 <div className={styles.cardRating}>
                   <span className={styles.stars}>{renderStars(product.rating)}</span>
                   <span className={styles.ratingNum}>({product.rating})</span>
@@ -181,13 +183,13 @@ const BestSellers = () => {
                   >
                     Add to Shopping Cart
                   </button>
-                  <a
+                  <Link
                     href={`/products/${quickViewProduct.id}`}
                     className={styles.modalViewFullBtn}
                     onClick={() => setQuickViewProduct(null)}
                   >
                     View Product Details →
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import styles from './Categories.module.css';
 
 const categories = [
@@ -14,7 +15,7 @@ const categories = [
     ),
     image: '/images/products/perfume-1.jpg',
     count: '25+ Items',
-    href: '#perfumes',
+    href: '/products?category=Perfume',
   },
   {
     id: 2,
@@ -28,7 +29,7 @@ const categories = [
     ),
     image: '/images/products/watch-1.jpg',
     count: '30+ Items',
-    href: '#watches',
+    href: '/products?category=Watch',
   },
   {
     id: 3,
@@ -42,7 +43,7 @@ const categories = [
     ),
     image: '/images/products/sunglasses-1.jpg',
     count: '20+ Items',
-    href: '#glasses',
+    href: '/products?category=Glasses',
   },
   {
     id: 4,
@@ -56,7 +57,7 @@ const categories = [
     ),
     image: '/images/products/mobile-1.jpg',
     count: '25+ Items',
-    href: '#mobiles',
+    href: '/products?category=Mobile',
   },
   {
     id: 5,
@@ -69,7 +70,7 @@ const categories = [
     ),
     image: '/images/products/mobile-2.jpg',
     count: '40+ Items',
-    href: '#mobile-acc',
+    href: '/products?category=Mobile',
   },
   {
     id: 6,
@@ -82,7 +83,7 @@ const categories = [
     ),
     image: '/images/products/laptop-1.jpg',
     count: '20+ Items',
-    href: '#laptops',
+    href: '/products?category=Laptop',
   },
   {
     id: 7,
@@ -95,7 +96,7 @@ const categories = [
     ),
     image: '/images/products/laptop-2.jpg',
     count: '35+ Items',
-    href: '#laptop-acc',
+    href: '/products?category=Laptop',
   },
   {
     id: 8,
@@ -108,7 +109,7 @@ const categories = [
     ),
     image: '/images/products/clock-1.jpg',
     count: '15+ Items',
-    href: '#clocks',
+    href: '/products?category=Clock',
   },
   {
     id: 9,
@@ -120,7 +121,7 @@ const categories = [
     ),
     image: '/images/products/perfume-2.jpg',
     count: '18+ Items',
-    href: '#perfumes',
+    href: '/products?category=Perfume',
   },
   {
     id: 10,
@@ -133,7 +134,7 @@ const categories = [
     ),
     image: '/images/products/watch-2.jpg',
     count: '22+ Items',
-    href: '#watches',
+    href: '/products?category=Watch',
   },
 ];
 
@@ -146,7 +147,7 @@ const Categories = () => {
         </div>
         <div className={styles.grid}>
           {categories.map((cat) => (
-            <a key={cat.id} href={cat.href} className={styles.card}>
+            <Link key={cat.id} href={cat.href} className={styles.card}>
               <div className={styles.cardImage}>
                 <Image
                   src={cat.image}
@@ -164,7 +165,7 @@ const Categories = () => {
                 <span className={styles.cardCount}>{cat.count}</span>
                 <span className={styles.cardArrow}>→</span>
               </div>
-            </a>
+            </Link>
           ))}
         </div>
       </div>
